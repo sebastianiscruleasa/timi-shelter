@@ -8,10 +8,15 @@ import {
   Modal,
 } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import CloseIcon from "@mui/icons-material/Close";
 
 const styles = {
   input: { width: 500, marginY: 2 },
   button: { width: 300, marginY: 2 },
+  modal: {
+    position: "absolute",
+    p: 4,
+  },
 };
 
 export function Login(props) {
@@ -20,22 +25,40 @@ export function Login(props) {
   const password = useRef(null);
 
   return (
-    <Modal>
-      <Container>
-        <Grid container justifyContent="center" alignItems="center">
+    <Modal
+      open={open}
+      onClose={onClose}
+      justifyContent="center"
+      alignItems="center"
+      sx={{ verticalAlign: "middle" }}
+    >
+      <Container sx={styles.modal}>
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          sx={{ height: "100vh", width: "100vw" }}
+        >
           <Grid item>
             <Grid
               container
               direction="column"
               sx={{
-                maxWidth: "100%",
+                backgroundColor: "#fff",
                 borderWidth: 1,
                 borderColor: "#000E40",
                 borderStyle: "solid",
                 paddingX: 10,
                 borderRadius: 3,
+                position: "relative",
               }}
             >
+              <Button
+                onClick={onClose}
+                sx={{ position: "absolute", top: 4, left: 4 }}
+              >
+                <CloseIcon />
+              </Button>
               <Grid container justifyContent="center" alignItems="center">
                 <Grid item>
                   <Typography

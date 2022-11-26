@@ -15,8 +15,10 @@ import HealthPhoto from "../assets/Health.png";
 import WorkPhoto from "../assets/Work.png";
 import InequalitiesPhoto from "../assets/ReducedInequalities.png";
 import Carousel from "react-bootstrap/Carousel";
-
+import { useState } from "react";
+import { Login } from "./Login";
 function Homepage() {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <Container maxWidth="xl">
       <Carousel style={{ paddingTop: "20px" }}>
@@ -77,6 +79,13 @@ function Homepage() {
           I want to help
         </Button>
       </Grid>
+      <Button
+        variant="text"
+        textAlign="center"
+        onClick={() => setOpenModal(true)}
+      >
+        Text
+      </Button>
       <Grid container paddingY={5} justifyContent="center">
         <Grid
           item
@@ -184,6 +193,7 @@ function Homepage() {
           </Typography>
         </Grid>
       </Grid>
+      <Login open={openModal} onClose={() => setOpenModal(false)} />
     </Container>
   );
 }
