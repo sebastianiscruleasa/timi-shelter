@@ -3,6 +3,7 @@ import { Container, Grid, TextField, Button, Typography } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { NavLink } from "react-router-dom";
 
 const styles = {
   input: { width: 500, marginY: 2 },
@@ -14,7 +15,7 @@ export function Register() {
   const lastName = useRef(null);
   const phoneNumber = useRef(null);
   const cnp = useRef(null);
-  const [value, setValue] = React.useState(null);
+  const [value, setValue] = useState(null);
   console.log(cnp);
   return (
     <Container>
@@ -117,7 +118,15 @@ export function Register() {
                     size="large"
                     variant="contained"
                   >
-                    Creeaza cont
+                    <NavLink
+                      to="/"
+                      style={{
+                        textDecoration: "none",
+                        color: "#fff",
+                      }}
+                    >
+                      Creeaza cont
+                    </NavLink>
                   </Button>
                 </Grid>
               </Grid>
