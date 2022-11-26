@@ -38,3 +38,10 @@ CREATE TABLE user_application(
     PRIMARY KEY (`username`),
     UNIQUE KEY `id_UNIQUE` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE experience(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`description` varchar(3000),
+CONSTRAINT `FK_username2` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
