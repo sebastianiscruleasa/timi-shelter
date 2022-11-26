@@ -21,6 +21,8 @@ public class User {
 
     private String password;
 
+    private UserType userType;
+
     public User() {
     }
 
@@ -44,6 +46,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 
     @Override

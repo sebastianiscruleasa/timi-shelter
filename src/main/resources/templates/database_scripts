@@ -3,8 +3,6 @@ CREATE DATABASE timishelter_dev;
 CREATE USER 'timishelter_dev_user'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'timishelter_dev_user'@'%' IDENTIFIED BY 'password';
 
-
-
 GRANT SELECT ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
 GRANT INSERT ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
 GRANT DELETE ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';

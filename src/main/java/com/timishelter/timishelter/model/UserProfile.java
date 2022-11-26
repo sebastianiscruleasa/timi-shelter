@@ -24,6 +24,10 @@ public class UserProfile {
 
     private String address;
 
+    private String identification_number;
+
+    private UserType type;
+
     public UserProfile() {
     }
 
@@ -82,5 +86,21 @@ public class UserProfile {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getIdentification_number() {
+        return identification_number;
+    }
+
+    public void setIdentification_number(String identification_number) {
+        this.identification_number = identification_number;
+    }
+
+    public UserType getType() {
+        return type;
+    }
+
+    public void setType(UserType type) {
+        this.type = type;
     }
 }
