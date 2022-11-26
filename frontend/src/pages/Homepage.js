@@ -1,15 +1,4 @@
-import {
-  Container,
-  Button,
-  Grid,
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-  CardActionArea,
-} from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Container, Button, Grid, Box, Typography } from "@mui/material";
 import PovertyPhoto from "../assets/NoPoverty.png";
 import HealthPhoto from "../assets/Health.png";
 import WorkPhoto from "../assets/Work.png";
@@ -17,8 +6,15 @@ import InequalitiesPhoto from "../assets/ReducedInequalities.png";
 import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import { Login } from "./Login";
+import { Register } from "./Register";
+import { InstitutionRegister } from "./InstitutionRegister";
+
 function Homepage() {
   const [openModal, setOpenModal] = useState(false);
+  const [openRegisterModal, setOpenRegisterModal] = useState(false);
+  const [openInstitutionRegisterModal, setOpenInstitutionRegisterModal] =
+    useState(false);
+
   return (
     <Container maxWidth="xl">
       <Carousel style={{ paddingTop: "20px" }}>
@@ -68,6 +64,7 @@ function Homepage() {
           variant="contained"
           size="large"
           sx={{ fontSize: 30, textTransform: "none" }}
+          onClick={() => setOpenRegisterModal(true)}
         >
           I need help
         </Button>
@@ -75,6 +72,7 @@ function Homepage() {
           variant="outlined"
           size="large"
           sx={{ fontSize: 30, textTransform: "none" }}
+          onClick={() => setOpenInstitutionRegisterModal(true)}
         >
           I want to help
         </Button>
@@ -86,6 +84,7 @@ function Homepage() {
       </Grid>
       <Grid container paddingY={5} justifyContent="center">
         <Grid
+          container
           item
           md={2}
           display="flex"
@@ -109,6 +108,7 @@ function Homepage() {
           </Typography>
         </Grid>
         <Grid
+          container
           item
           md={2}
           display="flex"
@@ -145,6 +145,7 @@ function Homepage() {
           </Typography>
         </Grid>
         <Grid
+          container
           item
           md={2}
           display="flex"
@@ -168,6 +169,7 @@ function Homepage() {
           </Typography>
         </Grid>
         <Grid
+          container
           item
           md={2}
           display="flex"
@@ -192,6 +194,14 @@ function Homepage() {
         </Grid>
       </Grid>
       <Login open={openModal} onClose={() => setOpenModal(false)} />
+      <Register
+        open={openRegisterModal}
+        onClose={() => setOpenRegisterModal(false)}
+      />
+      <InstitutionRegister
+        open={openInstitutionRegisterModal}
+        onClose={() => setOpenInstitutionRegisterModal(false)}
+      />
     </Container>
   );
 }

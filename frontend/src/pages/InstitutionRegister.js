@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   Container,
   Grid,
@@ -6,11 +6,7 @@ import {
   Button,
   Typography,
   Modal,
-  Checkbox,
 } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { NavLink } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -23,13 +19,13 @@ const styles = {
   },
 };
 
-export function Register(props) {
+export function InstitutionRegister(props) {
   const { open, onClose } = props;
   const firstName = useRef(null);
   const lastName = useRef(null);
   const phoneNumber = useRef(null);
   const cnp = useRef(null);
-  const [value, setValue] = useState(null);
+
   return (
     <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
       <Container sx={styles.modal}>
@@ -77,7 +73,7 @@ export function Register(props) {
                             color: "#000E40",
                           }}
                         >
-                          Alatura-te comunitatii noastre!
+                          Inscrieti institutia dumneavoastra
                         </Typography>
                       </Grid>
                     </Grid>
@@ -86,7 +82,7 @@ export function Register(props) {
                         ref={lastName}
                         id="outlined-basic"
                         defaultValue={""}
-                        label="Nume"
+                        label="Nume institutie"
                         variant="outlined"
                         sx={styles.input}
                       />
@@ -96,7 +92,7 @@ export function Register(props) {
                         inputRef={firstName}
                         id="outlined-basic"
                         defaultValue={""}
-                        label="Prenume"
+                        label="Adresa"
                         variant="outlined"
                         sx={styles.input}
                       />
@@ -114,43 +110,12 @@ export function Register(props) {
                     <Grid item>
                       <TextField
                         id="outlined-basic"
-                        label="CNP"
+                        label="Descriere"
                         defaultValue={""}
-                        error
                         inputRef={cnp}
-                        helperText="CNP-ul contine doar cifre."
                         variant="outlined"
                         sx={styles.input}
                       />
-                    </Grid>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DatePicker
-                        label="Data nasterii"
-                        value={value ?? ""}
-                        onChange={(newValue) => {
-                          setValue(newValue);
-                        }}
-                        renderInput={(params) => (
-                          <TextField
-                            {...params}
-                            error={false}
-                            sx={styles.input}
-                          />
-                        )}
-                      />
-                    </LocalizationProvider>
-                    <Grid item>
-                      <Grid container alignItems={"center"}>
-                        <Grid item>
-                          <Checkbox size="medium" />
-                        </Grid>
-                        <Grid item>
-                          <Typography>
-                            Doresc sa creez acest cont pentru a ajuta o alta
-                            persoana
-                          </Typography>
-                        </Grid>
-                      </Grid>
                     </Grid>
                     <Grid item>
                       <Grid

@@ -7,21 +7,20 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MedicationLiquidIcon from "@mui/icons-material/MedicationLiquid";
 import PersonIcon from "@mui/icons-material/Person";
-import AuthContext from "../../store/auth-context";
 import { NavLink } from "react-router-dom";
+// import AuthContext from "../../store/auth-context";
 
 const pages = ["Dorinte", "Plan", "Realizari"];
 const pagesInstitution = ["Recomandari", "Ajuta", "Realizari"];
 const settings = ["Profil", "Deconectare"];
 
 function NavBar() {
-  const authCtx = React.useContext(AuthContext);
-  //   const { role, name, isLoggedIn } = authCtx;
+  // const authCtx = React.useContext(AuthContext);
+  // const { role, name, isLoggedIn } = authCtx;
   const role = "CLIENT";
   const isLoggedIn = true;
   const name = "Andrei Micu";
