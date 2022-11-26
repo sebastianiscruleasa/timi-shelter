@@ -26,7 +26,8 @@ public class UserService {
             String age,
             String address,
             String identificationNumber,
-            String userType
+            String userType,
+            boolean isGoodCitizen
     ) {
         UserProfile userProfile = new UserProfile();
         userProfile.setUsername(username);
@@ -38,6 +39,7 @@ public class UserService {
         userProfile.setAddress(address);
         userProfile.setIdentification_number(identificationNumber);
         userProfile.setType(UserType.valueOf(userType.toUpperCase(Locale.ROOT)));
+        userProfile.setGoodCitizen(isGoodCitizen);
         return userProfile;
     }
 
