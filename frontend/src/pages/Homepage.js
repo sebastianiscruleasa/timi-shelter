@@ -6,9 +6,15 @@ import InequalitiesPhoto from "../assets/ReducedInequalities.png";
 import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import { Login } from "./Login";
+import { Register } from "./Register";
+import { InstitutionRegister } from "./InstitutionRegister";
 
 function Homepage() {
   const [openModal, setOpenModal] = useState(false);
+  const [openRegisterModal, setOpenRegisterModal] = useState(false);
+  const [openInstitutionRegisterModal, setOpenInstitutionRegisterModal] =
+    useState(false);
+
   return (
     <Container maxWidth="xl">
       <Carousel style={{ paddingTop: "20px" }}>
@@ -58,6 +64,7 @@ function Homepage() {
           variant="contained"
           size="large"
           sx={{ fontSize: 30, textTransform: "none", width: 330 }}
+          onClick={() => setOpenRegisterModal(true)}
         >
           Am nevoie de ajutor
         </Button>
@@ -65,6 +72,7 @@ function Homepage() {
           variant="contained"
           size="large"
           sx={{ fontSize: 30, textTransform: "none", width: 330 }}
+          onClick={() => setOpenInstitutionRegisterModal(true)}
         >
           Vreau sa ajut
         </Button>
@@ -194,6 +202,14 @@ function Homepage() {
         </Grid>
       </Grid>
       <Login open={openModal} onClose={() => setOpenModal(false)} />
+      <Register
+        open={openRegisterModal}
+        onClose={() => setOpenRegisterModal(false)}
+      />
+      <InstitutionRegister
+        open={openInstitutionRegisterModal}
+        onClose={() => setOpenInstitutionRegisterModal(false)}
+      />
     </Container>
   );
 }

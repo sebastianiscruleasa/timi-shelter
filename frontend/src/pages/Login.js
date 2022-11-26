@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   Container,
   Grid,
@@ -25,13 +25,7 @@ export function Login(props) {
   const password = useRef(null);
 
   return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      justifyContent="center"
-      alignItems="center"
-      sx={{ verticalAlign: "middle" }}
-    >
+    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
       <Container sx={styles.modal}>
         <Grid
           container
@@ -46,8 +40,6 @@ export function Login(props) {
               sx={{
                 backgroundColor: "#fff",
                 borderWidth: 1,
-                borderColor: "#000E40",
-                borderStyle: "solid",
                 paddingX: 10,
                 borderRadius: 3,
                 position: "relative",
