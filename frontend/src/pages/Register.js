@@ -116,9 +116,7 @@ export function Register(props) {
                         id="outlined-basic"
                         label="CNP"
                         defaultValue={""}
-                        error
                         inputRef={cnp}
-                        helperText="CNP-ul contine doar cifre."
                         variant="outlined"
                         sx={styles.input}
                       />
