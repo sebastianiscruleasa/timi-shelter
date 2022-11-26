@@ -16,16 +16,25 @@ GRANT UPDATE ON timishelter_dev.* to 'timishelter_dev_user'@'%';
 GRANT ALTER ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
 GRANT ALTER ON timishelter_dev.* to 'timishelter_dev_user'@'%';
 
-CREATE TABLE person(
-    `id` int NOT NULL AUTO_INCREMENT,
-    `first_name` varchar(50),
-    `last_name` varchar(50),
-    `phone_number` varchar(50),
-    `email` varchar(50),
-    `age` int,
-    `address` varchar(100),
+SET autocommit = 1;
 
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `id_UNIQUE` (`id`)
+CREATE TABLE user_profile(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`first_name` varchar(50),
+`last_name` varchar(50),
+`phone_number` varchar(50),
+`email` varchar(50),
+`age` int,
+`address` varchar(100),
+`identification_number` varchar(20),
+`type` int,
+CONSTRAINT `FK_username1` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE user_application(
+    `username` varchar(50),
+    `password` varchar(255),
+    PRIMARY KEY (`username`),
+    UNIQUE KEY `id_UNIQUE` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
