@@ -1,15 +1,4 @@
-import {
-  Container,
-  Button,
-  Grid,
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-  CardActionArea,
-} from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Container, Button, Grid, Box, Typography } from "@mui/material";
 import PovertyPhoto from "../assets/NoPoverty.png";
 import HealthPhoto from "../assets/Health.png";
 import WorkPhoto from "../assets/Work.png";
@@ -17,6 +6,7 @@ import InequalitiesPhoto from "../assets/ReducedInequalities.png";
 import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import { Login } from "./Login";
+
 function Homepage() {
   const [openModal, setOpenModal] = useState(false);
   return (
