@@ -1,20 +1,17 @@
 package com.timishelter.timishelter.controller;
 
-import com.timishelter.timishelter.model.Shelter;
-import com.timishelter.timishelter.repository.ShelterRepository;
+import com.timishelter.timishelter.model.Provider;
+import com.timishelter.timishelter.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/shelters")
-public class ShelterController {
+public class ProviderController {
 
     @Autowired
-    private ShelterRepository shelterRepository;
+    private ProviderRepository providerRepository;
 
     @PostMapping("/add")
     public String addShelter(
@@ -23,17 +20,26 @@ public class ShelterController {
             @RequestParam Integer capacity,
             @RequestParam String description
                              ){
-        Shelter s = new Shelter();
+        Provider s = new Provider();
         s.setUsername(username);
         s.setType(type);
         s.setCapacity(capacity);
         s.setDescription(description);
-        shelterRepository.save(s);
+        providerRepository.save(s);
         return "Success";
     }
 
+    @GetMapping(path="/find")
+    @ResponseBody
+    public Iterable<Provider> getProviderByType(
+            @RequestParam String type
+    ){
+        return providerRepository.findAllByType(type);
+    }
+
     @GetMapping("/all")
-    public Iterable<Shelter> getAllShelters(){
-        return shelterRepository.findAll();
+    public @ResponseBody
+    Iterable<Provider> getAllShelters(){
+        return providerRepository.findAll();
     }
 }

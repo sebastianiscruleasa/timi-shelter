@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "shelters")
-public class Shelter {
+@Table(name = "providers")
+public class Provider {
 
     @Id
     @GeneratedValue(
