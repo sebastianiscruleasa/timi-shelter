@@ -31,7 +31,11 @@ export function Register(props) {
   const cnp = useRef(null);
   const [value, setValue] = useState(null);
   return (
-    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
+    <Modal
+      open={open}
+      onClose={onClose}
+      sx={{ verticalAlign: "middle" }}
+    >
       <Container sx={styles.modal}>
         <Grid
           container
@@ -52,11 +56,15 @@ export function Register(props) {
             >
               <Button
                 onClick={onClose}
-                sx={{ position: "absolute", top: 8, left: 4 }}
+                sx={{ position: "absolute", top: 8, left: 4, pl: 82, pt: 1.5 }}
               >
                 <CloseIcon />
               </Button>
-              <Grid container justifyContent="center" alignItems="center">
+              <Grid
+                container
+                justifyContent="center"
+                alignItems="center"
+              >
                 <Grid item>
                   <Grid
                     container
@@ -65,7 +73,11 @@ export function Register(props) {
                       borderRadius: 3,
                     }}
                   >
-                    <Grid container justifyContent="center" alignItems="center">
+                    <Grid
+                      container
+                      justifyContent="center"
+                      alignItems="center"
+                    >
                       <Grid item>
                         <Typography
                           fontFamily={"sans-serif"}
@@ -138,7 +150,10 @@ export function Register(props) {
                       />
                     </LocalizationProvider>
                     <Grid item>
-                      <Grid container alignItems={"center"}>
+                      <Grid
+                        container
+                        alignItems={"center"}
+                      >
                         <Grid item>
                           <Checkbox size="medium" />
                         </Grid>

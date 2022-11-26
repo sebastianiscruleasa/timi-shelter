@@ -4,11 +4,11 @@ import Plan from "../components/Plan/Plan";
 
 const DUMMY_DATA = [
   {
-    categorie: "Mancare",
+    categorie: "Cazare",
     data: new Date(2023, 5, 5),
-    nume: "Cantina Politehnica Timisoara",
+    nume: "Caminul 11C",
     locatie: "Timisoara",
-    contact: "0745162122",
+    contact: "0735162122",
   },
   {
     categorie: "Slujba",
@@ -25,11 +25,11 @@ const DUMMY_DATA = [
     contact: "0745262122",
   },
   {
-    categorie: "Cazare",
+    categorie: "Mancare",
     data: new Date(2023, 5, 5),
-    nume: "Caminul 11C",
+    nume: "Cantina UPT",
     locatie: "Timisoara",
-    contact: "0735162122",
+    contact: "0745162122",
   },
 ];
 
@@ -53,6 +53,8 @@ const Plans = () => {
             dateFurnizor={plan}
             style={{
               marginBottom: 2,
+              width: 522,
+              height: 235,
             }}
           />
         ))}
