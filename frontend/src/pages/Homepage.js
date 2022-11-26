@@ -79,13 +79,11 @@ function Homepage() {
           I want to help
         </Button>
       </Grid>
-      <Button
-        variant="text"
-        textAlign="center"
-        onClick={() => setOpenModal(true)}
-      >
-        Text
-      </Button>
+      <Grid container justifyContent="center">
+        <Button variant="text" onClick={() => setOpenModal(true)}>
+          Ai deja cont? Autentifica-te!
+        </Button>
+      </Grid>
       <Grid container paddingY={5} justifyContent="center">
         <Grid
           item
