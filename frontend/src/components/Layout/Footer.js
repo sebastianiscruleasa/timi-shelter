@@ -11,36 +11,18 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const Footer = () => {
   return (
     <footer style={{ postion: "absolute", bottom: 0 }}>
-      <Box
-        px={{ xs: 3, sm: 10 }}
-        py={{ xs: 5, sm: 3 }}
-        bgcolor="#E6E6EB"
-      >
+      <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 3 }} bgcolor="#015265">
         <Container maxWidth="lg">
-          <Grid
-            container
-            spacing={3}
-            textAlign="center"
-          >
-            <Grid
-              item
-              xs={1}
-              sm={1}
-            >
-              <Box pt={{ xs: 2 }}>Informatii</Box>
+          <Grid container spacing={3} textAlign="center">
+            <Grid item xs={1} sm={1}>
+              <Box pt={{ xs: 2 }} style={{ color: "#fff" }}>
+                Informatii
+              </Box>
             </Grid>
-            <Grid
-              item
-              xs={2}
-              sm={1}
-            >
+            <Grid item xs={2} sm={1} style={{ color: "#fff" }}>
               <Box pt={{ xs: 2 }}>Donatii</Box>
             </Grid>
-            <Grid
-              item
-              xs={3}
-              sm={1}
-            >
+            <Grid item xs={3} sm={1} style={{ color: "#fff" }}>
               <Box pt={{ xs: 2 }}>Sponsori</Box>
             </Grid>
 
@@ -48,6 +30,7 @@ const Footer = () => {
               textAlign="center"
               pt={{ xs: 5 }}
               pl={{ xs: 30 }}
+              style={{ color: "#fff" }}
             >
               Timi-shelter &reg; {new Date().getFullYear()}
             </Box>
@@ -55,12 +38,13 @@ const Footer = () => {
               textAlign="center"
               pt={{ xs: 3 }}
               pl={{ xs: 30 }}
+              style={{ color: "#fff" }}
             >
               <Link
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >
@@ -70,7 +54,7 @@ const Footer = () => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >
@@ -80,7 +64,7 @@ const Footer = () => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >
@@ -90,7 +74,7 @@ const Footer = () => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >

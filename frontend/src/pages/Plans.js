@@ -35,22 +35,19 @@ const DUMMY_DATA = [
 
 const Plans = () => {
   return (
-    <Grid
-      container
-      justifyContent="center"
-    >
+    <Grid container justifyContent="center">
       <Typography
         variant="h1"
         gutterBottom
+        fontWeight="700"
+        color="white"
+        sx={{
+          textShadow: " -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+        }}
       >
         Planul tau
       </Typography>
-      <Grid
-        item
-        display="flex"
-        flexWrap="wrap"
-        justifyContent="space-evenly"
-      >
+      <Grid item display="flex" flexWrap="wrap" justifyContent="space-evenly">
         {DUMMY_DATA.map((plan) => (
           <Plan
             dateFurnizor={plan}

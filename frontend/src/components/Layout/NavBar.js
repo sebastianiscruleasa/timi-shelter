@@ -43,7 +43,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: "#015265" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <MedicationLiquidIcon
@@ -62,6 +62,9 @@ function NavBar() {
               letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
+              "&:hover": {
+                color: "white",
+              },
             }}
           >
             TIMI-SHELTER
