@@ -24,19 +24,20 @@ public class UserProfileController {
     @PostMapping(path="/createUserProfile")
     @ResponseBody
     public User createUserProfile (
-            @RequestParam String firstName,
-            @RequestParam String lastName,
-            @RequestParam String email,
-            @RequestParam String phoneNumber,
-            @RequestParam String age,
-            @RequestParam String address,
-            @RequestParam String identificationNumber,
-            @RequestParam String userType
+            @RequestParam(required = true) String firstName,
+            @RequestParam(required = true) String lastName,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) String phoneNumber,
+            @RequestParam(required = false) String age,
+            @RequestParam(required = false) String address,
+            @RequestParam(required = false) String identificationNumber,
+            @RequestParam(required = true) String userType,
+            @RequestParam(required = false) boolean isGoodCitizen
     ) {
         //on user profile creation, return fresh credentials for login
         User user = userService.createUser(firstName, lastName);
 
-        UserProfile userProfile = userService.createUserProfile(user.getUsername(), firstName, lastName, email, phoneNumber, age, address, identificationNumber, userType);
+        UserProfile userProfile = userService.createUserProfile(user.getUsername(), firstName, lastName, email, phoneNumber, age, address, identificationNumber, userType, isGoodCitizen);
         userProfileRepository.save(userProfile);
         user.setUserType(userProfile.getType());
 

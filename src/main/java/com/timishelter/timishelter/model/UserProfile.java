@@ -28,6 +28,8 @@ public class UserProfile {
 
     private UserType type;
 
+    private boolean isGoodCitizen;
+
     public UserProfile() {
     }
 
@@ -102,5 +104,13 @@ public class UserProfile {
 
     public void setType(UserType type) {
         this.type = type;
+    }
+
+    public boolean isGoodCitizen() {
+        return isGoodCitizen;
+    }
+
+    public void setGoodCitizen(boolean goodCitizen) {
+        isGoodCitizen = goodCitizen;
     }
 }
