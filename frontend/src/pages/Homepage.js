@@ -53,20 +53,20 @@ function Homepage() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Grid container paddingTop={4} justifyContent="space-evenly">
+      <Grid container paddingTop={6} justifyContent="space-evenly">
         <Button
           variant="contained"
           size="large"
-          sx={{ fontSize: 30, textTransform: "none" }}
+          sx={{ fontSize: 30, textTransform: "none", width: 330 }}
         >
-          I need help
+          Am nevoie de ajutor
         </Button>
         <Button
-          variant="outlined"
+          variant="contained"
           size="large"
-          sx={{ fontSize: 30, textTransform: "none" }}
+          sx={{ fontSize: 30, textTransform: "none", width: 330 }}
         >
-          I want to help
+          Vreau sa ajut
         </Button>
       </Grid>
       <Grid container justifyContent="center">
@@ -95,7 +95,13 @@ function Homepage() {
             textAlign="center"
             sx={{ color: "#e5233d", fontWeight: 700, fontSize: "25px" }}
           >
-            No Poverty
+            Eradicarea
+            <Typography
+              textAlign="center"
+              sx={{ color: "#e5233d", fontWeight: 700, fontSize: "25px" }}
+            >
+              sărăciei
+            </Typography>
           </Typography>
         </Grid>
         <Grid
@@ -118,7 +124,7 @@ function Homepage() {
             textAlign="center"
             sx={{ color: "#4da147", fontWeight: 700, fontSize: "25px" }}
           >
-            Health
+            Sănătate și bună stare
           </Typography>
         </Grid>
         <Grid item md={4} padding={5}>
@@ -154,7 +160,7 @@ function Homepage() {
             textAlign="center"
             sx={{ color: "#e11482", fontWeight: 700, fontSize: "25px" }}
           >
-            Inequalities
+            Reducerea diferențelor
           </Typography>
         </Grid>
         <Grid
@@ -177,7 +183,13 @@ function Homepage() {
             textAlign="center"
             sx={{ color: "#a21d44", fontWeight: 700, fontSize: "25px" }}
           >
-            Work
+            Creștere{" "}
+            <Typography
+              textAlign="center"
+              sx={{ color: "#a21d44", fontWeight: 700, fontSize: "25px" }}
+            >
+              economică
+            </Typography>
           </Typography>
         </Grid>
       </Grid>
