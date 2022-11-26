@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import { Register } from "./pages/Register";
 import Plans from "./pages/Plans";
+import Needs from "./pages/Needs";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/register" element={<Register />} />
         <Route path="/plan" element={<Plans />} />
+        <Route path="/dorinte" element={<Needs />} />
       </Routes>
     </Layout>
   );

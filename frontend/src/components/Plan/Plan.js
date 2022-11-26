@@ -38,7 +38,7 @@ function Plan(props) {
       sx={[
         {
           boxShadow: 0,
-          border: "1px solid",
+          border: "2px solid",
           borderColor: "grey",
           borderRadius: "10px",
           marginX: "40px",

@@ -16,7 +16,10 @@ function Homepage() {
     useState(false);
 
   return (
-    <Container maxWidth="xl">
+    <Container
+      maxWidth="xl"
+      style={{ backgroundColor: "white", borderRadius: "30px 30px 0" }}
+    >
       <Carousel style={{ paddingTop: "20px" }}>
         <Carousel.Item>
           <img
@@ -63,7 +66,15 @@ function Homepage() {
         <Button
           variant="contained"
           size="large"
-          sx={{ fontSize: 30, textTransform: "none", width: 330 }}
+          sx={{
+            fontSize: 30,
+            textTransform: "none",
+            width: 330,
+            backgroundColor: "#015265",
+            "&:hover": {
+              backgroundColor: "#015265",
+            },
+          }}
           onClick={() => setOpenRegisterModal(true)}
         >
           Am nevoie de ajutor
@@ -71,14 +82,26 @@ function Homepage() {
         <Button
           variant="contained"
           size="large"
-          sx={{ fontSize: 30, textTransform: "none", width: 330 }}
+          sx={{
+            fontSize: 30,
+            textTransform: "none",
+            width: 330,
+            backgroundColor: "#015265",
+            "&:hover": {
+              backgroundColor: "#015265",
+            },
+          }}
           onClick={() => setOpenInstitutionRegisterModal(true)}
         >
           Vreau sa ajut
         </Button>
       </Grid>
       <Grid container justifyContent="center">
-        <Button variant="text" onClick={() => setOpenModal(true)}>
+        <Button
+          variant="text"
+          onClick={() => setOpenModal(true)}
+          style={{ color: "#015265" }}
+        >
           Ai deja cont? Autentifica-te!
         </Button>
       </Grid>
