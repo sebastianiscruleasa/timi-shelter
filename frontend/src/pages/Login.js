@@ -47,11 +47,21 @@ export function Login(props) {
             >
               <Button
                 onClick={onClose}
-                sx={{ position: "absolute", top: 4, left: 4 }}
+                sx={{
+                  position: "absolute",
+                  top: 4,
+                  left: 4,
+                  paddingLeft: 75,
+                  paddingTop: 2,
+                }}
               >
                 <CloseIcon />
               </Button>
-              <Grid container justifyContent="center" alignItems="center">
+              <Grid
+                container
+                justifyContent="center"
+                alignItems="center"
+              >
                 <Grid item>
                   <Typography
                     fontFamily={"sans-serif"}
@@ -88,7 +98,11 @@ export function Login(props) {
                 />
               </Grid>
               <Grid item>
-                <Grid container justifyContent="center" alignItems="center">
+                <Grid
+                  container
+                  justifyContent="center"
+                  alignItems="center"
+                >
                   <Grid item>
                     <Button
                       sx={[
