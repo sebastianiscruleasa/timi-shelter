@@ -142,7 +142,10 @@ export function InstitutionRegister(props) {
                               {
                                 marginBottom: 4,
                                 borderRadius: 25,
-                                backgroundColor: "#000E40",
+                                backgroundColor: "#015265",
+                                "&:hover": {
+                                  backgroundColor: "#015265",
+                                },
                               },
                             ]}
                             size="large"

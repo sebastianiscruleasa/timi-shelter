@@ -86,7 +86,6 @@ export function Register(props) {
                           sx={{
                             marginBottom: 2,
                             marginTop: 2,
-                            color: "#000E40",
                           }}
                         >
                           Alatura-te comunitatii noastre!
@@ -178,7 +177,10 @@ export function Register(props) {
                               {
                                 marginBottom: 4,
                                 borderRadius: 25,
-                                backgroundColor: "#000E40",
+                                backgroundColor: "#015265",
+                                "&:hover": {
+                                  backgroundColor: "#015265",
+                                },
                               },
                             ]}
                             size="large"

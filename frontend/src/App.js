@@ -9,11 +9,31 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/plan" element={<Plans />} />
-        <Route path="/dorinte" element={<Needs />} />
+        <Route
+          path="/"
+          element={<Homepage />}
+        />
+        <Route
+          path="/Acasă"
+          element={
+            <Navigate
+              to="/"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+        <Route
+          path="/plan"
+          element={<Plans />}
+        />
+        <Route
+          path="/nevoi"
+          element={<Needs />}
+        />
       </Routes>
     </Layout>
   );
