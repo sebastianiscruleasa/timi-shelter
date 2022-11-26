@@ -46,10 +46,6 @@ const Needs = () => {
     <Container
       style={{
         marginTop: "120px",
-        // backgroundImage: `url(${Background})`,
-        // backgroundSize: "contain",
-        // backgroundRepeat: "no-repeat",
-        // height: "100vh",
       }}
     >
       <Grid container justifyContent="center" alignItems="center">
