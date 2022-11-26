@@ -1,20 +1,14 @@
 package com.timishelter.timishelter.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "person")
-public class Person {
+@Table(name = "user_profile")
+public class UserProfile {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @GenericGenerator(
-            name = "native",
-            strategy = "native"
-    )
-    @Column(name = "id")
-    private int id;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "firstName")
     private String firstName;
@@ -29,6 +23,9 @@ public class Person {
     private String age;
 
     private String address;
+
+    public UserProfile() {
+    }
 
     public String getFirstName() {
         return firstName;
@@ -78,12 +75,12 @@ public class Person {
         this.address = address;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Id
+    public String getUsername() {
+        return username;
     }
 
-    @Id
-    public int getId() {
-        return id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
