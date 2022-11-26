@@ -45,3 +45,17 @@ CREATE TABLE experience(
 CONSTRAINT `FK_username2` FOREIGN KEY (`username`)
 REFERENCES user_application(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE need(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`need` int NOT NULL,
+CONSTRAINT `FK_username3` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE special_needs(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`description` int NOT NULL,
+CONSTRAINT `FK_username4` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
