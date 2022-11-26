@@ -11,7 +11,14 @@ const DUMMY_DATA = [
     contact: "0735162122",
   },
   {
-    categorie: "Slujba",
+    categorie: "Mâncare",
+    data: new Date(2023, 5, 5),
+    nume: "Cantina UPT",
+    locatie: "Timisoara",
+    contact: "0745162122",
+  },
+  {
+    categorie: "Slujbă",
     data: new Date(2023, 7, 5),
     nume: "Santier",
     locatie: "Timisoara",
@@ -24,30 +31,35 @@ const DUMMY_DATA = [
     locatie: "Timisoara",
     contact: "0745262122",
   },
-  {
-    categorie: "Mancare",
-    data: new Date(2023, 5, 5),
-    nume: "Cantina UPT",
-    locatie: "Timisoara",
-    contact: "0745162122",
-  },
 ];
 
 const Plans = () => {
   return (
-    <Grid container justifyContent="center">
+    <Grid
+      container
+      justifyContent="center"
+    >
       <Typography
-        variant="h1"
+        variant="h2"
         gutterBottom
-        fontWeight="700"
-        color="white"
+        fontWeight="500"
+        color="black"
         sx={{
-          textShadow: " -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+          backgroundColor: "white",
+          paddingTop: 3,
+          paddingBottom: 6,
+          paddingX: 7,
+          borderRadius: 10,
         }}
       >
-        Planul tau
+        Planul nostru pentru tine
       </Typography>
-      <Grid item display="flex" flexWrap="wrap" justifyContent="space-evenly">
+      <Grid
+        item
+        display="flex"
+        flexWrap="wrap"
+        justifyContent="space-evenly"
+      >
         {DUMMY_DATA.map((plan) => (
           <Plan
             dateFurnizor={plan}

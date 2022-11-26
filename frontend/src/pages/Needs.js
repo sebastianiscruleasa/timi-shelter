@@ -42,18 +42,35 @@ const Needs = () => {
     setCazare(event.target.checked);
   };
 
+  const [sanatate, alteleSanatate] = useState(false);
+
+  const handleSanatate = (event) => {
+    setCazare(event.target.checked);
+  };
+  const [altele, alteleCazare] = useState(false);
+
+  const handleAltele = (event) => {
+    setCazare(event.target.checked);
+  };
   return (
     <Container
       style={{
         marginTop: "120px",
       }}
     >
-      <Grid container justifyContent="center" alignItems="center">
-        <Grid item>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid
+          item
+          sx={{ pb: 10 }}
+        >
           <Grid
             container
             direction="column"
-            alignItems="center"
+            alignItems="left"
             sx={{
               maxWidth: "100%",
               borderWidth: 1,
@@ -71,10 +88,10 @@ const Needs = () => {
                 sx={{
                   marginBottom: 2,
                   marginTop: 2,
-                  color: "#015265",
+                  color: "black",
                 }}
               >
-                Ce dorinte ai?
+                Cu ce te putem ajuta?
               </Typography>
             </Grid>
             <FormGroup>
@@ -117,6 +134,26 @@ const Needs = () => {
                   />
                 }
                 label="Cazare"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={sanatate}
+                    onChange={handleSanatate}
+                    inputProps={{ "aria-label": "controlled" }}
+                  />
+                }
+                label="Probleme sanatăte"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={altele}
+                    onChange={handleAltele}
+                    inputProps={{ "aria-label": "controlled" }}
+                  />
+                }
+                label="Altele"
               />
             </FormGroup>
             <Button
