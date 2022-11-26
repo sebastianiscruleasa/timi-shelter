@@ -84,7 +84,6 @@ function Homepage() {
       </Grid>
       <Grid container paddingY={5} justifyContent="center">
         <Grid
-          container
           item
           md={2}
           display="flex"
@@ -114,7 +113,6 @@ function Homepage() {
           </Typography>
         </Grid>
         <Grid
-          container
           item
           md={2}
           display="flex"
@@ -151,7 +149,6 @@ function Homepage() {
           </Typography>
         </Grid>
         <Grid
-          container
           item
           md={2}
           display="flex"
@@ -175,7 +172,6 @@ function Homepage() {
           </Typography>
         </Grid>
         <Grid
-          container
           item
           md={2}
           display="flex"
