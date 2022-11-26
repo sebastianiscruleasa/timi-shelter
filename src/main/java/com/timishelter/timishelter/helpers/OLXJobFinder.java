@@ -12,6 +12,7 @@ import java.net.http.HttpResponse;
 public class OLXJobFinder {
 
     public void getJobs() throws IOException, InterruptedException {
+        System.out.println("AICIIIIIIIIIII");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://indeed-indeed.p.rapidapi.com/apisearch?" +
                         "useragent=%3CREQUIRED%3E&" +

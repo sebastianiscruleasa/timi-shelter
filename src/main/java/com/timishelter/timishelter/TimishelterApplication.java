@@ -20,8 +20,7 @@ public class TimishelterApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
-			OLXJobFinder finder = new OLXJobFinder();
-			finder.getJobs();
+
 		};
 	}
 }

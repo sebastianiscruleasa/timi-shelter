@@ -1,5 +1,6 @@
 package com.timishelter.timishelter.controller;
 
+import com.timishelter.timishelter.helpers.OLXJobFinder;
 import com.timishelter.timishelter.model.JobOffer;
 import com.timishelter.timishelter.repository.JobsRepository;
 import com.timishelter.timishelter.service.JobService;
@@ -8,9 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @Controller
-@RequestMapping("/jobs")
+@RequestMapping(path="/jobs")
 public class JobController {
 
     @Autowired
@@ -19,7 +23,7 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-    @PostMapping("/add")
+    @PostMapping(path="/add")
     public String addJob(
             @RequestParam String username,
             @RequestParam String title,
@@ -53,4 +57,11 @@ public class JobController {
         return jobService.getAllJobsForKeywords(keywords);
     }
 
+    @GetMapping(path="/findOlxJobs")
+    public @ResponseBody String getOlxJobs() throws IOException, InterruptedException {
+        OLXJobFinder finder = new OLXJobFinder();
+        finder.getJobs();
+
+        return "done";
+    }
 }
