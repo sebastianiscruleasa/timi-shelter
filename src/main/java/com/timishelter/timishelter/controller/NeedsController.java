@@ -18,7 +18,8 @@ public class NeedsController {
     private SpecialNeedRepository specialNeedRepository;
 
     @GetMapping("/regular")
-    public @ResponseBody
+    @ResponseBody
+    public
     Iterable<Need> getNeeds(
             @RequestParam String username
     ){
@@ -26,13 +27,15 @@ public class NeedsController {
     }
 
     @GetMapping("/special")
-    public @ResponseBody Iterable<SpecialNeed> getSpecialNeeds(
+    @ResponseBody
+    public  Iterable<SpecialNeed> getSpecialNeeds(
             @RequestParam String username
     ){
         return specialNeedRepository.findAllByUsername(username);
     }
 
     @PostMapping("addNormal")
+    @ResponseBody
     public String addNeeds(
             @RequestParam String username,
             @RequestParam int[] needs
@@ -48,6 +51,7 @@ public class NeedsController {
     }
 
     @PostMapping("addSpecial")
+    @ResponseBody
     public String addSpecialNeed(
             @RequestParam String username,
             @RequestParam String description

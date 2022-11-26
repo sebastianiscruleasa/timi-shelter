@@ -29,6 +29,7 @@ public class ExperienceController {
     }
 
     @GetMapping("/get")
+    @ResponseBody
     public Optional<Experience> getExperience(
             @RequestParam String username
     ){

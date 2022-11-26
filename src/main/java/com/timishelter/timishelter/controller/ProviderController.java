@@ -14,6 +14,7 @@ public class ProviderController {
     private ProviderRepository providerRepository;
 
     @PostMapping("/add")
+    @ResponseBody
     public String addShelter(
             @RequestParam String username,
             @RequestParam String type,
@@ -38,7 +39,8 @@ public class ProviderController {
     }
 
     @GetMapping("/all")
-    public @ResponseBody
+    @ResponseBody
+    public
     Iterable<Provider> getAllShelters(){
         return providerRepository.findAll();
     }
