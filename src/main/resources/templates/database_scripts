@@ -1,3 +1,21 @@
+CREATE DATABASE timishelter_dev;
+
+CREATE USER 'timishelter_dev_user'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'timishelter_dev_user'@'%' IDENTIFIED BY 'password';
+
+
+
+GRANT SELECT ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT INSERT ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT DELETE ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT UPDATE ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT SELECT ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT INSERT ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT DELETE ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT UPDATE ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT ALTER ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT ALTER ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+
 CREATE TABLE person(
     `id` int NOT NULL AUTO_INCREMENT,
     `first_name` varchar(50),
