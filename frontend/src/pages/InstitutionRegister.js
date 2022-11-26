@@ -27,7 +27,11 @@ export function InstitutionRegister(props) {
   const cnp = useRef(null);
 
   return (
-    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
+    <Modal
+      open={open}
+      onClose={onClose}
+      sx={{ verticalAlign: "middle" }}
+    >
       <Container sx={styles.modal}>
         <Grid
           container
@@ -48,11 +52,15 @@ export function InstitutionRegister(props) {
             >
               <Button
                 onClick={onClose}
-                sx={{ position: "absolute", top: 8, left: 4 }}
+                sx={{ position: "absolute", top: 8, left: 4, pl: 74, pt: 1.5 }}
               >
                 <CloseIcon />
               </Button>
-              <Grid container justifyContent="center" alignItems="center">
+              <Grid
+                container
+                justifyContent="center"
+                alignItems="center"
+              >
                 <Grid item>
                   <Grid
                     container
@@ -61,7 +69,11 @@ export function InstitutionRegister(props) {
                       borderRadius: 3,
                     }}
                   >
-                    <Grid container justifyContent="center" alignItems="center">
+                    <Grid
+                      container
+                      justifyContent="center"
+                      alignItems="center"
+                    >
                       <Grid item>
                         <Typography
                           fontFamily={"sans-serif"}
