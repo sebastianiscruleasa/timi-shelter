@@ -46,16 +46,26 @@ CONSTRAINT `FK_username2` FOREIGN KEY (`username`)
 REFERENCES user_application(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE need(
-`username` varchar(50) PRIMARY KEY NOT NULL,
-`need` int NOT NULL,
-CONSTRAINT `FK_username3` FOREIGN KEY (`username`)
-REFERENCES user_application(`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE needs(
+    `id` int NOT NULL AUTO_INCREMENT,
+	`username` varchar(50)  NOT NULL,
+	`need` int NOT NULL,
+    PRIMARY KEY(`id`),
+    UNIQUE KEY `id_UNIQUE` (`id`),
+	CONSTRAINT `FK_username3` FOREIGN KEY (`username`)
+	REFERENCES user_application(`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE special_needs(
 `username` varchar(50) PRIMARY KEY NOT NULL,
-`description` int NOT NULL,
+`description` varchar(3000) NOT NULL,
 CONSTRAINT `FK_username4` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE achievements(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`description` varchar(3000) NOT NULL,
+CONSTRAINT `FK_username5` FOREIGN KEY (`username`)
 REFERENCES user_application(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
