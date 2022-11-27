@@ -48,6 +48,7 @@ public class User {
         this.password = password;
     }
 
+
     public String getUserType() {
         return userType;
     }
