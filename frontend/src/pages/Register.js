@@ -61,7 +61,7 @@ export function Register(props) {
       headers: {
         'Content-Type' : 'application/json',
       },
-      body: payload_data,
+      body: JSON.stringify(payload_data),
     })
       .then((res) => {
         if (res.ok) {

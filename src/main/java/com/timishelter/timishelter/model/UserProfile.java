@@ -26,7 +26,7 @@ public class UserProfile {
 
     private String identificationNumber;
 
-    private UserType type;
+    private String type;
 
     private boolean isGoodCitizen;
 
@@ -98,11 +98,11 @@ public class UserProfile {
         this.identificationNumber = identificationNumber;
     }
 
-    public UserType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(UserType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
