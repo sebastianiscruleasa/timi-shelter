@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
+import Icon from "@mui/material/Icon";
+import NoDrinksIcon from "@mui/icons-material/NoDrinks";
 
 export function Achievements() {
   return (
@@ -10,7 +13,6 @@ export function Achievements() {
         width: "80vw",
         height: "70vh",
         margin: "10px 160px 10px 160px",
-        border: "solid 1px",
         borderRadius: 6,
         flexDirection: "column",
       }}
@@ -27,29 +29,26 @@ export function Achievements() {
           //   marginRight: 50,
         }}
       >
-        <Button
-          variant="outlined"
-          size="medium"
-          sx={{ fontSize: 16, textTransform: "none", width: 100 }}
-        >
-          Add task
-        </Button>
+        <h6>
+          <br></br>Acestea sunt reușitele tale până acum!
+        </h6>
+
         <div>
           <span
             style={{
               marginLeft: 50,
               marginRight: 80,
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: "700",
             }}
           >
-            Scope
+            Categorie
           </span>
           <span
             style={{
               marginLeft: 50,
               marginRight: 50,
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: "700",
             }}
           >
@@ -59,11 +58,11 @@ export function Achievements() {
             style={{
               marginLeft: 50,
               marginRight: 50,
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: "700",
             }}
           >
-            Press
+            Insignă
           </span>
         </div>
       </div>
@@ -77,12 +76,229 @@ export function Achievements() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          alignContent: "center",
+          marginLeft: "50px",
+          marginRight: "50px",
+        }}
+      >
+        <span style={{ fontSize: 18, fontWeight: "700" }}>
+          Ianuarie - Iunie:{" "}
+        </span>
+      </div>
+      <div
+        style={{
+          marginTop: "10px",
+          marginBottom: "10px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          backgroundColor: "#000",
+          height: "2px",
+          marginLeft: "50px",
+          marginRight: "50px",
+        }}
+      />
+      <div
+        style={{
+          marginTop: "10px",
+          marginBottom: "10px",
+          display: "flex",
+          flexDirection: "row",
+          marginLeft: "50px",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          <CheckCircleOutlineIcon />
+          <span style={{ marginLeft: 20 }}>Ești angajat o lună</span>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#AE599E",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                color: "#fff",
+              }}
+            >
+              Slujbă
+            </span>
+          </div>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#0092AD",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                width: "60px",
+                color: "#fff",
+                alignSelf: "center",
+              }}
+            >
+              Ai reușit!
+            </span>
+          </div>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#005AA6",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                width: "60px",
+                color: "#fff",
+                alignSelf: "center",
+              }}
+            >
+              <Icon>WorkHistoryIcon</Icon>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          marginTop: "20px",
+          marginBottom: "10px",
+          display: "flex",
+          flexDirection: "row",
+          marginLeft: "50px",
+          justifyContent: "space-between",
+          alignSelf: "center",
+        }}
+      >
+        <div>
+          <CheckCircleOutlineIcon color="disabled" />
+          <span style={{ marginLeft: 20 }}>Fără băutură 6 luni</span>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#AE599E",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                color: "#fff",
+              }}
+            >
+              Sănătate
+            </span>
+          </div>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#0092AD",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                width: "60px",
+                color: "#fff",
+              }}
+            >
+              În progres
+            </span>
+          </div>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#005AA6",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                width: "60px",
+                color: "#fff",
+              }}
+            >
+              <Icon>N </Icon>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          marginTop: "20px",
+          marginBottom: "10px",
+          display: "flex",
+          flexDirection: "row",
+          marginLeft: "50px",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          <CheckCircleOutlineIcon color="disabled" />
+          <span style={{ marginLeft: 20 }}>Inregistrat de o lună pe site</span>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#AE599E",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                color: "#fff",
+              }}
+            >
+              Contul tău
+            </span>
+          </div>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#0092AD",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                width: "60px",
+                color: "#fff",
+              }}
+            >
+              În progres
+            </span>
+          </div>
+          <div>
+            <span
+              style={{
+                backgroundColor: "#005AA6",
+                borderRadius: 25,
+                marginLeft: 50,
+                marginRight: 50,
+                padding: "10px",
+                width: "60px",
+                color: "#fff",
+              }}
+            >
+              <Icon>S</Icon>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          marginTop: "10px",
+          marginBottom: "10px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
           alignItems: "center",
           marginLeft: "50px",
           marginRight: "50px",
         }}
       >
-        <span style={{ fontSize: 18, fontWeight: "700" }}>Jan - March:</span>
+        <span style={{ fontSize: 18, fontWeight: "700" }}>
+          August - Decembrie:{" "}
+        </span>
       </div>
       <div
         style={{
@@ -109,7 +325,7 @@ export function Achievements() {
       >
         <div>
           <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
+          <span style={{ marginLeft: 20 }}>Exemplu</span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div>
@@ -123,7 +339,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              No drinking
+              Categorie
             </span>
           </div>
           <div>
@@ -138,7 +354,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Did it
+              Neînceput
             </span>
           </div>
           <div>
@@ -153,7 +369,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Yes
+              <Icon>Y </Icon>
             </span>
           </div>
         </div>
@@ -170,7 +386,7 @@ export function Achievements() {
       >
         <div>
           <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
+          <span style={{ marginLeft: 20 }}>Exemplu</span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div>
@@ -184,7 +400,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              No drinking
+              Categorie
             </span>
           </div>
           <div>
@@ -199,7 +415,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Did it
+              Neînceput
             </span>
           </div>
           <div>
@@ -214,7 +430,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Yes
+              <Icon>R</Icon>
             </span>
           </div>
         </div>
@@ -231,7 +447,7 @@ export function Achievements() {
       >
         <div>
           <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
+          <span style={{ marginLeft: 20 }}>Exemplu</span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div>
@@ -245,7 +461,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              No drinking
+              Categorie
             </span>
           </div>
           <div>
@@ -260,7 +476,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Did it
+              Neînceput
             </span>
           </div>
           <div>
@@ -275,7 +491,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Yes
+              <Icon>I</Icon>
             </span>
           </div>
         </div>
@@ -291,9 +507,7 @@ export function Achievements() {
           marginLeft: "50px",
           marginRight: "50px",
         }}
-      >
-        <span style={{ fontSize: 18, fontWeight: "700" }}>Jan - March:</span>
-      </div>
+      ></div>
       <div
         style={{
           marginTop: "10px",
@@ -307,609 +521,6 @@ export function Achievements() {
           marginRight: "50px",
         }}
       />
-      <div
-        style={{
-          marginTop: "10px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "20px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "20px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "10px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginLeft: "50px",
-          marginRight: "50px",
-        }}
-      >
-        <span style={{ fontSize: 18, fontWeight: "700" }}>Jan - March:</span>
-      </div>
-      <div
-        style={{
-          marginTop: "10px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          backgroundColor: "#000",
-          height: "2px",
-          marginLeft: "50px",
-          marginRight: "50px",
-        }}
-      />
-      <div
-        style={{
-          marginTop: "10px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "20px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "20px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "10px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginLeft: "50px",
-          marginRight: "50px",
-        }}
-      >
-        <span style={{ fontSize: 18, fontWeight: "700" }}>Jan - March:</span>
-      </div>
-      <div
-        style={{
-          marginTop: "10px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          backgroundColor: "#000",
-          height: "2px",
-          marginLeft: "50px",
-          marginRight: "50px",
-        }}
-      />
-      <div
-        style={{
-          marginTop: "10px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "20px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          marginTop: "20px",
-          marginBottom: "10px",
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "50px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>New user workflow</span>
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#AE599E",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                color: "#fff",
-              }}
-            >
-              No drinking
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#0092AD",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Did it
-            </span>
-          </div>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#005AA6",
-                borderRadius: 25,
-                marginLeft: 50,
-                marginRight: 50,
-                padding: "10px",
-                width: "60px",
-                color: "#fff",
-              }}
-            >
-              Yes
-            </span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
