@@ -42,7 +42,6 @@ export function Register(props) {
 
   const submitHandler = () => {
     const payload_data = {
-      username: "timi",
       firstName: firstName.current["value"],
       lastName: lastName.current["value"],
       email: email.current["value"],
