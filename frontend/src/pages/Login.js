@@ -27,8 +27,52 @@ export function Login(props) {
   const { open, onClose } = props;
   const username = useRef(null);
   const password = useRef(null);
+
+  const submitHandler = () => {
+    const login_data = {
+      username: username.current["value"],
+      password: password.current["value"]
+    };
+
+    fetch("http://localhost:8080/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(login_data),
+    })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            return res.json().then((data) => {
+              let errorMessage = "Register failed!";
+              throw new Error(errorMessage);
+            });
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          if(data === true) {
+            authCtx.login(true, "CLIENT", username.current.value);
+            onClose();
+            navigate("/acasă", {replace: true});
+          }
+          else{
+            alert("Wrong credentials!");
+          }
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+
+  };
   return (
-    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
+    <Modal
+      open={open}
+      onClose={onClose}
+      sx={{ verticalAlign: "middle" }}
+    >
       <Container sx={styles.modal}>
         <Grid
           container
@@ -60,7 +104,11 @@ export function Login(props) {
               >
                 <CloseIcon />
               </Button>
-              <Grid container justifyContent="center" alignItems="center">
+              <Grid
+                container
+                justifyContent="center"
+                alignItems="center"
+              >
                 <Grid item>
                   <Typography
                     fontFamily={"sans-serif"}
@@ -97,14 +145,14 @@ export function Login(props) {
                 />
               </Grid>
               <Grid item>
-                <Grid container justifyContent="center" alignItems="center">
+                <Grid
+                  container
+                  justifyContent="center"
+                  alignItems="center"
+                >
                   <Grid item>
                     <Button
-                      onClick={() => {
-                        authCtx.login(true, "CLIENT", username.current.value);
-                        onClose();
-                        navigate("/nevoi", { replace: true });
-                      }}
+                      onClick={submitHandler}
                       sx={[
                         styles.button,
                         {
