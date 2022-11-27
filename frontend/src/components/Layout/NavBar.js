@@ -16,7 +16,7 @@ import AuthContext from "../../store/auth-context";
 import { useNavigate } from "react-router";
 
 const pages = ["Acasă", "Nevoi", "Plan", "Realizări"];
-const pagesInstitution = ["Recomandări", "Ajută", "Realizări"];
+const pagesInstitution = ["Recomandări", "Ajută", "Realizari"];
 const settings = ["Profil", "Deconectare"];
 
 function NavBar() {
