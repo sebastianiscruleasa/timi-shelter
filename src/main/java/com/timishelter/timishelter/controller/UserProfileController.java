@@ -2,6 +2,7 @@ package com.timishelter.timishelter.controller;
 
 import com.timishelter.timishelter.model.User;
 import com.timishelter.timishelter.model.UserProfile;
+import com.timishelter.timishelter.model.UserType;
 import com.timishelter.timishelter.repository.UserProfileRepository;
 import com.timishelter.timishelter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,6 @@ public class UserProfileController {
         //on user profile creation, return fresh credentials for login
         User user = userService.createUser(userProfileData.getFirstName(), userProfileData.getLastName());
 
-        System.out.println("AM AJUNS AICI!!!");
-
         UserProfile userProfile = userService.createUserProfile(
                 user.getUsername(),
                 userProfileData.getFirstName(),
@@ -41,7 +40,7 @@ public class UserProfileController {
                 userProfileData.isGoodCitizen()
         );
         userProfileRepository.save(userProfile);
-        user.setUserType(userProfile.getType());
+        user.setUserType(userProfileData.getType());
 
         return user;
     }

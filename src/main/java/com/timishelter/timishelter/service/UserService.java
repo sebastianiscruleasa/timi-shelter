@@ -26,7 +26,7 @@ public class UserService {
             String age,
             String address,
             String identificationNumber,
-            UserType userType,
+            String userType,
             boolean isGoodCitizen
     ) {
         UserProfile userProfile = new UserProfile();

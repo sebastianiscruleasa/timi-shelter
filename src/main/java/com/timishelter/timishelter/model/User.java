@@ -21,7 +21,7 @@ public class User {
 
     private String password;
 
-    private UserType userType;
+    private String userType;
 
     public User() {
     }
@@ -48,12 +48,11 @@ public class User {
         this.password = password;
     }
 
-
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 

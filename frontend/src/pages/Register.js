@@ -41,8 +41,6 @@ export function Register(props) {
   };
 
   const submitHandler = () => {
-    // event.preventDefault();
-
     const payload_data = {
       username: "timi",
       firstName: firstName.current["value"],
@@ -52,7 +50,7 @@ export function Register(props) {
       address: address.current["value"],
       identificationNumber: cnp.current["value"],
       age: varsta.current["value"],
-      userType: "CLIENT",
+      userType: 'person',
       isGoodCitizen: goodCitizen,
     };
 
@@ -61,7 +59,7 @@ export function Register(props) {
       headers: {
         'Content-Type' : 'application/json',
       },
-      body: payload_data,
+      body: JSON.stringify(payload_data),
     })
       .then((res) => {
         if (res.ok) {
@@ -137,7 +135,7 @@ export function Register(props) {
                     </Grid>
                     <Grid item>
                       <TextField
-                        ref={lastName}
+                        inputRef={lastName}
                         id="outlined-basic"
                         defaultValue={""}
                         label="Nume"
