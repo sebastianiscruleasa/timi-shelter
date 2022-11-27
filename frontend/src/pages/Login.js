@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
+import AuthContext from "../store/auth-context";
+import { useNavigate } from "react-router";
 
 const styles = {
   input: { width: 500, marginY: 2 },
@@ -20,10 +22,11 @@ const styles = {
 };
 
 export function Login(props) {
+  const navigate = useNavigate();
+  const authCtx = React.useContext(AuthContext);
   const { open, onClose } = props;
   const username = useRef(null);
   const password = useRef(null);
-
   return (
     <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
       <Container sx={styles.modal}>
@@ -57,11 +60,7 @@ export function Login(props) {
               >
                 <CloseIcon />
               </Button>
-              <Grid
-                container
-                justifyContent="center"
-                alignItems="center"
-              >
+              <Grid container justifyContent="center" alignItems="center">
                 <Grid item>
                   <Typography
                     fontFamily={"sans-serif"}
@@ -79,7 +78,7 @@ export function Login(props) {
               </Grid>
               <Grid item>
                 <TextField
-                  ref={username}
+                  inputRef={username}
                   id="outlined-basic"
                   defaultValue={""}
                   label="Nume utilizator"
@@ -98,13 +97,14 @@ export function Login(props) {
                 />
               </Grid>
               <Grid item>
-                <Grid
-                  container
-                  justifyContent="center"
-                  alignItems="center"
-                >
+                <Grid container justifyContent="center" alignItems="center">
                   <Grid item>
                     <Button
+                      onClick={() => {
+                        authCtx.login(true, "CLIENT", username.current.value);
+                        onClose();
+                        navigate("/nevoi", { replace: true });
+                      }}
                       sx={[
                         styles.button,
                         {
