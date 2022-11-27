@@ -10,11 +10,35 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/Acasă" element={<Navigate to="/" replace />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/plan" element={<Plans />} />
-        <Route path="/nevoi" element={<Needs />} />
+        <Route
+          path="/"
+          element={<Homepage />}
+        />
+        <Route
+          path="/Acasă"
+          element={
+            <Navigate
+              to="/"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+        <Route
+          path="/plan"
+          element={<Plans />}
+        />
+        <Route
+          path="/nevoi"
+          element={<Needs />}
+        />
+        <Route
+          path="/realizări"
+          element={<Achievements />}
+        />
       </Routes>
     </Layout>
   );
