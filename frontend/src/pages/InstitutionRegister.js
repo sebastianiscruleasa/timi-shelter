@@ -59,7 +59,7 @@ export function InstitutionRegister(props) {
       })
       .then((data) => {
         console.log(data);
-        authCtx.login(true, "CLIENT", firstName.current["value"]);
+        authCtx.login(true, "INSTITUTIE", firstName.current["value"]);
         onClose();
         navigate("/", { replace: true });
       })

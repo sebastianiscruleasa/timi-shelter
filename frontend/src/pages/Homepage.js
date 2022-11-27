@@ -88,63 +88,55 @@ function Homepage() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Grid
-        container
-        paddingTop={6}
-        justifyContent="space-evenly"
-      >
-        <Button
-          variant="contained"
-          size="large"
-          sx={{
-            fontSize: 30,
-            textTransform: "none",
-            width: 330,
-            backgroundColor: "#015265",
-            "&:hover": {
-              backgroundColor: "#015265",
-            },
-            borderRadius: 25,
-          }}
-          onClick={() => setOpenRegisterModal(true)}
-        >
-          Am nevoie de ajutor
-        </Button>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{
-            fontSize: 30,
-            textTransform: "none",
-            width: 330,
-            backgroundColor: "#015265",
-            "&:hover": {
-              backgroundColor: "#015265",
-            },
-            borderRadius: 25,
-          }}
-          onClick={() => setOpenInstitutionRegisterModal(true)}
-        >
-          Vreau sa ajut
-        </Button>
-      </Grid>
-      <Grid
-        container
-        justifyContent="center"
-      >
-        <Button
-          variant="text"
-          onClick={() => setOpenModal(true)}
-          style={{ color: "#015265" }}
-        >
-          Ai deja cont? Autentifica-te!
-        </Button>
-      </Grid>
-      <Grid
-        container
-        paddingY={5}
-        justifyContent="center"
-      >
+      {!authCtx.isLoggedIn && (
+          <Grid container paddingTop={6} justifyContent="space-evenly">
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                fontSize: 30,
+                textTransform: "none",
+                width: 330,
+                backgroundColor: "#015265",
+                "&:hover": {
+                  backgroundColor: "#015265",
+                },
+                borderRadius: 25,
+              }}
+              onClick={() => setOpenRegisterModal(true)}
+            >
+              Am nevoie de ajutor
+            </Button>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                fontSize: 30,
+                textTransform: "none",
+                width: 330,
+                backgroundColor: "#015265",
+                "&:hover": {
+                  backgroundColor: "#015265",
+                },
+                borderRadius: 25,
+              }}
+              onClick={() => setOpenInstitutionRegisterModal(true)}
+            >
+              Vreau sa ajut
+            </Button>
+          </Grid>
+        ) && (
+          <Grid container justifyContent="center">
+            <Button
+              variant="text"
+              onClick={() => setOpenModal(true)}
+              style={{ color: "#015265" }}
+            >
+              Ai deja cont? Autentifica-te!
+            </Button>
+          </Grid>
+        )}
+      <Grid container paddingY={5} justifyContent="center">
         <Grid
           item
           md={2}
@@ -197,11 +189,7 @@ function Homepage() {
             Sănătate și bună stare
           </Typography>
         </Grid>
-        <Grid
-          item
-          md={4}
-          padding={5}
-        >
+        <Grid item md={4} padding={5}>
           <Typography
             variant="h5"
             sx={{ textAlign: "center", fontWeight: 700, fontSize: "30px" }}
@@ -267,10 +255,7 @@ function Homepage() {
           </Typography>
         </Grid>
       </Grid>
-      <Login
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-      />
+      <Login open={openModal} onClose={() => setOpenModal(false)} />
       <Register
         open={openRegisterModal}
         onClose={() => setOpenRegisterModal(false)}
