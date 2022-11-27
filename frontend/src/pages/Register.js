@@ -78,7 +78,11 @@ export function Register(props) {
         onClose();
         navigate("/", { replace: true });
         // alert(`Parola ta este ${data.password}`);
-        swal("Bine ai venit!", `Parola ta este${data.password}`);
+        swal(
+          "Bine ai venit!",
+          `Numele contului tau este ${data.username}
+          Parola ta este ${data.password}`
+        );
       })
       .catch((err) => {
         alert(err.message);
