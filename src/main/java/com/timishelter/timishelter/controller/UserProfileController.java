@@ -17,6 +17,7 @@ public class UserProfileController {
     @Autowired
     private UserService userService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path="/createUserProfile")
     @ResponseBody
     public User createUserProfile (
@@ -24,6 +25,8 @@ public class UserProfileController {
     ) {
         //on user profile creation, return fresh credentials for login
         User user = userService.createUser(userProfileData.getFirstName(), userProfileData.getLastName());
+
+        System.out.println("AM AJUNS AICI!!!");
 
         UserProfile userProfile = userService.createUserProfile(
                 user.getUsername(),
@@ -33,7 +36,7 @@ public class UserProfileController {
                 userProfileData.getPhoneNumber(),
                 userProfileData.getAge(),
                 userProfileData.getAddress(),
-                userProfileData.getIdentification_number(),
+                userProfileData.getIdentificationNumber(),
                 userProfileData.getType(),
                 userProfileData.isGoodCitizen()
         );

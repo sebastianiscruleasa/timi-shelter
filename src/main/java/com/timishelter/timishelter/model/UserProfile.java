@@ -24,7 +24,7 @@ public class UserProfile {
 
     private String address;
 
-    private String identification_number;
+    private String identificationNumber;
 
     private UserType type;
 
@@ -90,12 +90,12 @@ public class UserProfile {
         this.username = username;
     }
 
-    public String getIdentification_number() {
-        return identification_number;
+    public String getIdentificationNumber() {
+        return identificationNumber;
     }
 
-    public void setIdentification_number(String identification_number) {
-        this.identification_number = identification_number;
+    public void setIdentificationNumber(String identificationNumber) {
+        this.identificationNumber = identificationNumber;
     }
 
     public UserType getType() {

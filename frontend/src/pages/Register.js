@@ -44,6 +44,7 @@ export function Register(props) {
     // event.preventDefault();
 
     const payload_data = {
+      username: "timi",
       firstName: firstName.current["value"],
       lastName: lastName.current["value"],
       email: email.current["value"],
@@ -52,60 +53,45 @@ export function Register(props) {
       identificationNumber: cnp.current["value"],
       age: varsta.current["value"],
       userType: "CLIENT",
-      // isGoodCitizen: goodCitizen,
+      isGoodCitizen: goodCitizen,
     };
-    console.log(payload_data);
-    console.log(JSON.stringify(payload_data));
 
-    // fetch("http://localhost:8080/userProfile/createUserProfile", {
-    //   method: "POST",
-    //   body: JSON.stringify(payload_data),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     charset: "utf-8",
-    //     // "Access-Control-Allow-Origin": "*",
-    //   },
-    //   mode: "no-cors",
-    // })
-    fetch("http://localhost:8080/user/newUser?username=andrei&password=123", {
+    fetch("http://localhost:8080/userProfile/createUserProfile", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        //   // "Access-Control-Allow-Origin": "*",
+        'Content-Type' : 'application/json',
       },
-      mode: "no-cors",
+      body: payload_data,
     })
       .then((res) => {
-        // console.log(res.json());
-        if (res.type === "opaque" || res.ok) {
-          console.log(res);
+        if (res.ok) {
+          return res.json();
         } else {
-          return res.json().then(() => {
+          return res.json().then((data) => {
             let errorMessage = "Register failed!";
             throw new Error(errorMessage);
           });
         }
       })
       .then((data) => {
-        console.log("data");
+        console.log(data);
         authCtx.login(true, payload_data.userType, firstName);
         onClose();
         navigate("/", { replace: true });
       })
       .catch((err) => {
-        console.log("skafgasjl");
         alert(err.message);
       });
   };
 
   return (
-    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
+    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle"}}>
       <Container sx={styles.modal}>
         <Grid
           container
           justifyContent="center"
           alignItems="center"
-          sx={{ height: "100vh", width: "100vw" }}
+          sx={{ height: "100vh", width: "100vw",overflow: "auto" }}
         >
           <Grid item>
             <Grid
@@ -151,7 +137,7 @@ export function Register(props) {
                     </Grid>
                     <Grid item>
                       <TextField
-                        inputRef={lastName}
+                        ref={lastName}
                         id="outlined-basic"
                         defaultValue={""}
                         label="Nume"
