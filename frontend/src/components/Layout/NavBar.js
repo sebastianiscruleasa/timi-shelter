@@ -12,18 +12,20 @@ import MenuItem from "@mui/material/MenuItem";
 import MedicationLiquidIcon from "@mui/icons-material/MedicationLiquid";
 import PersonIcon from "@mui/icons-material/Person";
 import { NavLink } from "react-router-dom";
-// import AuthContext from "../../store/auth-context";
+import AuthContext from "../../store/auth-context";
+import { useNavigate } from "react-router";
 
 const pages = ["Acasă", "Nevoi", "Plan", "Realizări"];
 const pagesInstitution = ["Recomandări", "Ajută", "Realizări"];
 const settings = ["Profil", "Deconectare"];
 
 function NavBar() {
-  // const authCtx = React.useContext(AuthContext);
-  // const { role, name, isLoggedIn } = authCtx;
-  const role = "CLIENT";
-  const isLoggedIn = true;
-  const name = "Andrei Micu";
+  const navigate = useNavigate();
+  const authCtx = React.useContext(AuthContext);
+  const { role, name, isLoggedIn } = authCtx;
+  // const role = "CLIENT";
+  // const isLoggedIn = false;
+  // const name = "Andrei Micu";
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -43,14 +45,8 @@ function NavBar() {
   };
 
   return (
-    <AppBar
-      position="static"
-      style={{ backgroundColor: "#015265" }}
-    >
-      <Container
-        maxWidth="xl"
-        sx={{ pt: 1, pb: 1 }}
-      >
+    <AppBar position="static" style={{ backgroundColor: "#015265" }}>
+      <Container maxWidth="xl" sx={{ pt: 1, pb: 1 }}>
         <Toolbar disableGutters>
           <MedicationLiquidIcon
             sx={{ display: { xs: "none", md: "flex" }, mr: 2 }}
@@ -108,10 +104,7 @@ function NavBar() {
               {isLoggedIn &&
                 role === "CLIENT" &&
                 pages.map((page) => (
-                  <MenuItem
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                  >
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
                       <NavLink
                         to={`/${page}`}
@@ -129,10 +122,7 @@ function NavBar() {
               {isLoggedIn &&
                 role === "INSTITUTIE" &&
                 pagesInstitution.map((page) => (
-                  <MenuItem
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                  >
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
                       <NavLink
                         to={`/${page}`}
@@ -170,10 +160,7 @@ function NavBar() {
             {isLoggedIn &&
               role === "CLIENT" &&
               pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                >
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
                     <NavLink
                       to={`/${page}`}
@@ -191,10 +178,7 @@ function NavBar() {
             {isLoggedIn &&
               role === "INSTITUTIE" &&
               pagesInstitution.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                >
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
                     <NavLink
                       to={`/${page}`}
@@ -214,10 +198,7 @@ function NavBar() {
           {isLoggedIn && (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
-                <IconButton
-                  onClick={handleOpenUserMenu}
-                  sx={{ p: 0 }}
-                >
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <PersonIcon
                     sx={{
                       display: { md: "flex" },
@@ -251,14 +232,19 @@ function NavBar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem
-                    key={setting}
-                    onClick={handleCloseUserMenu}
-                  >
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))}
+                <MenuItem key={settings[0]} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{settings[0]}</Typography>
+                </MenuItem>
+                <MenuItem
+                  key={settings[1]}
+                  onClick={() => {
+                    authCtx.logout();
+                    handleCloseUserMenu();
+                    navigate("/", { replace: true });
+                  }}
+                >
+                  <Typography textAlign="center">{settings[1]}</Typography>
+                </MenuItem>
               </Menu>
             </Box>
           )}

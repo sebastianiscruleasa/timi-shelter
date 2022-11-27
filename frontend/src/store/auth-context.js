@@ -41,7 +41,7 @@ export const AuthContextProvider = (props) => {
     localStorage.removeItem("role");
     localStorage.removeItem("name");
   }, []);
-  const loginHandler = (role, name) => {
+  const loginHandler = (userIsLogged, role, name) => {
     setUserLoggedIn(userIsLogged);
     setRole(role);
     setName(name);
