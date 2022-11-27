@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path="/user")
 public class UserController {
 
@@ -39,7 +40,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping(path="/login")
+    @PostMapping(path="/login")
     @ResponseBody
     public boolean login(
             @RequestBody(required = true) User user
