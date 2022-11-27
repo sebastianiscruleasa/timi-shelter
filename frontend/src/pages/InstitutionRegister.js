@@ -11,6 +11,8 @@ import { NavLink } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router";
 import AuthContext from "./../store/auth-context";
+import { getSwitchBaseUtilityClass } from "@mui/material/internal/switchBaseClasses";
+import swal from "sweetalert";
 
 const styles = {
   input: { width: 500, marginY: 2 },
@@ -62,6 +64,11 @@ export function InstitutionRegister(props) {
         authCtx.login(true, "INSTITUTIE", firstName.current["value"]);
         onClose();
         navigate("/", { replace: true });
+        swal(
+          "Bine ai venit!",
+          `Numele contului tau este ${data.username}
+          Parola ta este ${data.password}`
+        );
       })
       .catch((err) => {
         alert(err.message);
