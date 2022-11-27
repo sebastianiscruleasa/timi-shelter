@@ -37,7 +37,7 @@ public class UserService {
         userProfile.setPhoneNumber(phoneNumber);
         userProfile.setAge(age);
         userProfile.setAddress(address);
-        userProfile.setIdentification_number(identificationNumber);
+        userProfile.setIdentificationNumber(identificationNumber);
         userProfile.setType(userType);
         userProfile.setGoodCitizen(isGoodCitizen);
         return userProfile;

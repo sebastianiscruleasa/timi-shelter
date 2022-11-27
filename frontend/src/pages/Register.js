@@ -44,6 +44,7 @@ export function Register(props) {
     // event.preventDefault();
 
     const payload_data = {
+      username: "timi",
       firstName: firstName.current["value"],
       lastName: lastName.current["value"],
       email: email.current["value"],
@@ -57,6 +58,9 @@ export function Register(props) {
 
     fetch("http://localhost:8080/userProfile/createUserProfile", {
       method: "POST",
+      headers: {
+        'Content-Type' : 'application/json',
+      },
       body: payload_data,
     })
       .then((res) => {
@@ -81,13 +85,13 @@ export function Register(props) {
   };
 
   return (
-    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
+    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle"}}>
       <Container sx={styles.modal}>
         <Grid
           container
           justifyContent="center"
           alignItems="center"
-          sx={{ height: "100vh", width: "100vw" }}
+          sx={{ height: "100vh", width: "100vw",overflow: "auto" }}
         >
           <Grid item>
             <Grid
