@@ -14,6 +14,8 @@ import { useNavigate } from "react-router";
 
 import AuthContext from "./../store/auth-context";
 
+import swal from "sweetalert";
+
 const styles = {
   input: { width: 500, marginY: 2 },
   button: { width: 300, marginY: 2 },
@@ -42,7 +44,6 @@ export function Register(props) {
 
   const submitHandler = () => {
     const payload_data = {
-      username: "timi",
       firstName: firstName.current["value"],
       lastName: lastName.current["value"],
       email: email.current["value"],
@@ -50,14 +51,14 @@ export function Register(props) {
       address: address.current["value"],
       identificationNumber: cnp.current["value"],
       age: varsta.current["value"],
-      userType: 'person',
+      userType: "person",
       isGoodCitizen: goodCitizen,
     };
 
     fetch("http://localhost:8080/userProfile/createUserProfile", {
       method: "POST",
       headers: {
-        'Content-Type' : 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(payload_data),
     })
@@ -76,6 +77,8 @@ export function Register(props) {
         authCtx.login(true, "CLIENT", firstName.current["value"]);
         onClose();
         navigate("/", { replace: true });
+        // alert(`Parola ta este ${data.password}`);
+        swal("Bine ai venit!", `Parola ta este${data.password}`);
       })
       .catch((err) => {
         alert(err.message);
@@ -83,13 +86,13 @@ export function Register(props) {
   };
 
   return (
-    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle"}}>
+    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
       <Container sx={styles.modal}>
         <Grid
           container
           justifyContent="center"
           alignItems="center"
-          sx={{ height: "100vh", width: "100vw",overflow: "auto" }}
+          sx={{ height: "100vh", width: "100vw", overflow: "auto" }}
         >
           <Grid item>
             <Grid

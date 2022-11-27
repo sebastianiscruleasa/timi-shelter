@@ -28,7 +28,11 @@ export function Login(props) {
   const username = useRef(null);
   const password = useRef(null);
   return (
-    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
+    <Modal
+      open={open}
+      onClose={onClose}
+      sx={{ verticalAlign: "middle" }}
+    >
       <Container sx={styles.modal}>
         <Grid
           container
@@ -60,7 +64,11 @@ export function Login(props) {
               >
                 <CloseIcon />
               </Button>
-              <Grid container justifyContent="center" alignItems="center">
+              <Grid
+                container
+                justifyContent="center"
+                alignItems="center"
+              >
                 <Grid item>
                   <Typography
                     fontFamily={"sans-serif"}
@@ -97,13 +105,17 @@ export function Login(props) {
                 />
               </Grid>
               <Grid item>
-                <Grid container justifyContent="center" alignItems="center">
+                <Grid
+                  container
+                  justifyContent="center"
+                  alignItems="center"
+                >
                   <Grid item>
                     <Button
                       onClick={() => {
                         authCtx.login(true, "CLIENT", username.current.value);
                         onClose();
-                        navigate("/nevoi", { replace: true });
+                        navigate("/acasă", { replace: true });
                       }}
                       sx={[
                         styles.button,

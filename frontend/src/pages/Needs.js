@@ -83,12 +83,13 @@ const Needs = () => {
             <Grid item>
               <Typography
                 fontFamily={"sans-serif"}
-                fontSize={28}
+                fontSize={35}
                 fontWeight="700"
                 sx={{
                   marginBottom: 2,
                   marginTop: 2,
                   color: "black",
+                  backgroundColor: "white",
                 }}
               >
                 Cu ce te putem ajuta?
