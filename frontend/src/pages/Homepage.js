@@ -88,7 +88,11 @@ function Homepage() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Grid container paddingTop={6} justifyContent="space-evenly">
+      <Grid
+        container
+        paddingTop={6}
+        justifyContent="space-evenly"
+      >
         <Button
           variant="contained"
           size="large"
@@ -124,7 +128,10 @@ function Homepage() {
           Vreau sa ajut
         </Button>
       </Grid>
-      <Grid container justifyContent="center">
+      <Grid
+        container
+        justifyContent="center"
+      >
         <Button
           variant="text"
           onClick={() => setOpenModal(true)}
@@ -133,7 +140,11 @@ function Homepage() {
           Ai deja cont? Autentifica-te!
         </Button>
       </Grid>
-      <Grid container paddingY={5} justifyContent="center">
+      <Grid
+        container
+        paddingY={5}
+        justifyContent="center"
+      >
         <Grid
           item
           md={2}
@@ -186,7 +197,11 @@ function Homepage() {
             Sănătate și bună stare
           </Typography>
         </Grid>
-        <Grid item md={4} padding={5}>
+        <Grid
+          item
+          md={4}
+          padding={5}
+        >
           <Typography
             variant="h5"
             sx={{ textAlign: "center", fontWeight: 700, fontSize: "30px" }}
@@ -252,7 +267,10 @@ function Homepage() {
           </Typography>
         </Grid>
       </Grid>
-      <Login open={openModal} onClose={() => setOpenModal(false)} />
+      <Login
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+      />
       <Register
         open={openRegisterModal}
         onClose={() => setOpenRegisterModal(false)}
