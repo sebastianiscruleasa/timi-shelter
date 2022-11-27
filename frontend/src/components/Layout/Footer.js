@@ -14,7 +14,7 @@ const Footer = () => {
       <Box
         px={{ xs: 3, sm: 10 }}
         py={{ xs: 5, sm: 3 }}
-        bgcolor="#E6E6EB"
+        bgcolor="#015265"
       >
         <Container maxWidth="lg">
           <Grid
@@ -27,19 +27,26 @@ const Footer = () => {
               xs={1}
               sm={1}
             >
-              <Box pt={{ xs: 2 }}>Informatii</Box>
+              <Box
+                pt={{ xs: 2 }}
+                style={{ color: "#fff" }}
+              >
+                Informații
+              </Box>
             </Grid>
             <Grid
               item
               xs={2}
               sm={1}
+              style={{ color: "#fff" }}
             >
-              <Box pt={{ xs: 2 }}>Donatii</Box>
+              <Box pt={{ xs: 2 }}>Donații</Box>
             </Grid>
             <Grid
               item
               xs={3}
               sm={1}
+              style={{ color: "#fff" }}
             >
               <Box pt={{ xs: 2 }}>Sponsori</Box>
             </Grid>
@@ -47,20 +54,22 @@ const Footer = () => {
             <Box
               textAlign="center"
               pt={{ xs: 5 }}
-              pl={{ xs: 30 }}
+              pl={{ xs: 26 }}
+              style={{ color: "#fff" }}
             >
               Timi-shelter &reg; {new Date().getFullYear()}
             </Box>
             <Box
               textAlign="center"
-              pt={{ xs: 3 }}
+              pt={{ xs: 4 }}
               pl={{ xs: 30 }}
+              style={{ color: "#fff" }}
             >
               <Link
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >
@@ -70,7 +79,7 @@ const Footer = () => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >
@@ -80,7 +89,7 @@ const Footer = () => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >
@@ -90,7 +99,7 @@ const Footer = () => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "#000",
+                  color: "#fff",
                   paddingInline: 5,
                 }}
               >

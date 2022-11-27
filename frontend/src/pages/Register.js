@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import {
   Container,
   Grid,
@@ -8,11 +8,11 @@ import {
   Modal,
   Checkbox,
 } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { NavLink } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router";
+
+import AuthContext from "./../store/auth-context";
 
 const styles = {
   input: { width: 500, marginY: 2 },
@@ -24,12 +24,80 @@ const styles = {
 };
 
 export function Register(props) {
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const { open, onClose } = props;
   const firstName = useRef(null);
   const lastName = useRef(null);
+  const email = useRef(null);
   const phoneNumber = useRef(null);
+  const address = useRef(null);
   const cnp = useRef(null);
-  const [value, setValue] = useState(null);
+  const varsta = useRef(null);
+  const [goodCitizen, setGoodCitizen] = useState(false);
+  const handleGoodCitizen = (event) => {
+    setGoodCitizen(event.target.checked);
+  };
+
+  const submitHandler = () => {
+    // event.preventDefault();
+
+    const payload_data = {
+      firstName: firstName.current["value"],
+      lastName: lastName.current["value"],
+      email: email.current["value"],
+      phoneNumber: phoneNumber.current["value"],
+      address: address.current["value"],
+      identificationNumber: cnp.current["value"],
+      age: varsta.current["value"],
+      userType: "CLIENT",
+      // isGoodCitizen: goodCitizen,
+    };
+    console.log(payload_data);
+    console.log(JSON.stringify(payload_data));
+
+    // fetch("http://localhost:8080/userProfile/createUserProfile", {
+    //   method: "POST",
+    //   body: JSON.stringify(payload_data),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     charset: "utf-8",
+    //     // "Access-Control-Allow-Origin": "*",
+    //   },
+    //   mode: "no-cors",
+    // })
+    fetch("http://localhost:8080/user/newUser?username=andrei&password=123", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        //   // "Access-Control-Allow-Origin": "*",
+      },
+      mode: "no-cors",
+    })
+      .then((res) => {
+        // console.log(res.json());
+        if (res.type === "opaque" || res.ok) {
+          console.log(res);
+        } else {
+          return res.json().then(() => {
+            let errorMessage = "Register failed!";
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .then((data) => {
+        console.log("data");
+        authCtx.login(true, payload_data.userType, firstName);
+        onClose();
+        navigate("/", { replace: true });
+      })
+      .catch((err) => {
+        console.log("skafgasjl");
+        alert(err.message);
+      });
+  };
+
   return (
     <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
       <Container sx={styles.modal}>
@@ -52,7 +120,7 @@ export function Register(props) {
             >
               <Button
                 onClick={onClose}
-                sx={{ position: "absolute", top: 8, left: 4 }}
+                sx={{ position: "absolute", top: 8, left: 4, pl: 82, pt: 1.5 }}
               >
                 <CloseIcon />
               </Button>
@@ -74,7 +142,7 @@ export function Register(props) {
                           sx={{
                             marginBottom: 2,
                             marginTop: 2,
-                            color: "#000E40",
+                            color: "#015265",
                           }}
                         >
                           Alatura-te comunitatii noastre!
@@ -83,7 +151,7 @@ export function Register(props) {
                     </Grid>
                     <Grid item>
                       <TextField
-                        ref={lastName}
+                        inputRef={lastName}
                         id="outlined-basic"
                         defaultValue={""}
                         label="Nume"
@@ -103,10 +171,30 @@ export function Register(props) {
                     </Grid>
                     <Grid item>
                       <TextField
+                        inputRef={email}
+                        id="outlined-basic"
+                        defaultValue={""}
+                        label="Email"
+                        variant="outlined"
+                        sx={styles.input}
+                      />
+                    </Grid>
+                    <Grid item>
+                      <TextField
                         id="outlined-basic"
                         inputRef={phoneNumber}
                         defaultValue={""}
                         label="Numar de telefon"
+                        variant="outlined"
+                        sx={styles.input}
+                      />
+                    </Grid>
+                    <Grid item>
+                      <TextField
+                        id="outlined-basic"
+                        inputRef={address}
+                        defaultValue={""}
+                        label="Adresa"
                         variant="outlined"
                         sx={styles.input}
                       />
@@ -121,26 +209,24 @@ export function Register(props) {
                         sx={styles.input}
                       />
                     </Grid>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DatePicker
-                        label="Data nasterii"
-                        value={value ?? ""}
-                        onChange={(newValue) => {
-                          setValue(newValue);
-                        }}
-                        renderInput={(params) => (
-                          <TextField
-                            {...params}
-                            error={false}
-                            sx={styles.input}
-                          />
-                        )}
+                    <Grid item>
+                      <TextField
+                        id="outlined-basic"
+                        label="Varsta"
+                        defaultValue={""}
+                        inputRef={varsta}
+                        variant="outlined"
+                        sx={styles.input}
                       />
-                    </LocalizationProvider>
+                    </Grid>
                     <Grid item>
                       <Grid container alignItems={"center"}>
                         <Grid item>
-                          <Checkbox size="medium" />
+                          <Checkbox
+                            size="medium"
+                            checked={goodCitizen}
+                            onChange={handleGoodCitizen}
+                          />
                         </Grid>
                         <Grid item>
                           <Typography>
@@ -163,21 +249,14 @@ export function Register(props) {
                               {
                                 marginBottom: 4,
                                 borderRadius: 25,
-                                backgroundColor: "#000E40",
+                                backgroundColor: "#015265",
                               },
                             ]}
+                            onClick={submitHandler}
                             size="large"
                             variant="contained"
                           >
-                            <NavLink
-                              to="/"
-                              style={{
-                                textDecoration: "none",
-                                color: "#fff",
-                              }}
-                            >
-                              Creeaza cont
-                            </NavLink>
+                            Creeaza cont
                           </Button>
                         </Grid>
                       </Grid>

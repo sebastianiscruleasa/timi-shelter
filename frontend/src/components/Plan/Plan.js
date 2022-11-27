@@ -9,7 +9,7 @@ function Plan(props) {
   const { categorie, data, nume, locatie, contact } = props.dateFurnizor;
   var imagine;
   switch (categorie) {
-    case "Mancare":
+    case "Mâncare":
       imagine =
         "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/heart-healthy-food-1580231690.jpg";
       break;
@@ -17,7 +17,7 @@ function Plan(props) {
       imagine =
         "https://www.noozhawk.com/images/made/images/uploads/082421-Lompoc-Pallet-Houses-1-SG_2400_1600_80_s_c1.jpeg";
       break;
-    case "Slujba":
+    case "Slujbă":
       imagine =
         "https://edway.edu.au/wp-content/uploads/2020/05/Apprenticeships-And-Jobs-For-School-Leavers.jpg";
       break;
@@ -38,7 +38,7 @@ function Plan(props) {
       sx={[
         {
           boxShadow: 0,
-          border: "1px solid",
+          border: "2px solid",
           borderColor: "grey",
           borderRadius: "10px",
           marginX: "40px",
@@ -59,7 +59,10 @@ function Plan(props) {
           }}
         >
           <CardContent sx={{ flex: "1 0 auto" }}>
-            <Typography component="div" variant="h4">
+            <Typography
+              component="div"
+              variant="h4"
+            >
               {categorie}
             </Typography>
             <Typography

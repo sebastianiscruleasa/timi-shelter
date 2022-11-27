@@ -14,8 +14,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import { NavLink } from "react-router-dom";
 // import AuthContext from "../../store/auth-context";
 
-const pages = ["Dorinte", "Plan", "Realizari"];
-const pagesInstitution = ["Recomandari", "Ajuta", "Realizari"];
+const pages = ["Acasă", "Nevoi", "Plan", "Realizări"];
+const pagesInstitution = ["Recomandări", "Ajută", "Realizări"];
 const settings = ["Profil", "Deconectare"];
 
 function NavBar() {
@@ -43,11 +43,17 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar
+      position="static"
+      style={{ backgroundColor: "#015265" }}
+    >
+      <Container
+        maxWidth="xl"
+        sx={{ pt: 1, pb: 1 }}
+      >
         <Toolbar disableGutters>
           <MedicationLiquidIcon
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+            sx={{ display: { xs: "none", md: "flex" }, mr: 2 }}
           />
           <Typography
             variant="h6"
@@ -62,6 +68,9 @@ function NavBar() {
               letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
+              "&:hover": {
+                color: "white",
+              },
             }}
           >
             TIMI-SHELTER
@@ -99,7 +108,10 @@ function NavBar() {
               {isLoggedIn &&
                 role === "CLIENT" &&
                 pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <MenuItem
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                  >
                     <Typography textAlign="center">
                       <NavLink
                         to={`/${page}`}
@@ -117,7 +129,10 @@ function NavBar() {
               {isLoggedIn &&
                 role === "INSTITUTIE" &&
                 pagesInstitution.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <MenuItem
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                  >
                     <Typography textAlign="center">
                       <NavLink
                         to={`/${page}`}
@@ -155,7 +170,10 @@ function NavBar() {
             {isLoggedIn &&
               role === "CLIENT" &&
               pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                >
                   <Typography textAlign="center">
                     <NavLink
                       to={`/${page}`}
@@ -173,7 +191,10 @@ function NavBar() {
             {isLoggedIn &&
               role === "INSTITUTIE" &&
               pagesInstitution.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                >
                   <Typography textAlign="center">
                     <NavLink
                       to={`/${page}`}
@@ -193,7 +214,10 @@ function NavBar() {
           {isLoggedIn && (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton
+                  onClick={handleOpenUserMenu}
+                  sx={{ p: 0 }}
+                >
                   <PersonIcon
                     sx={{
                       display: { md: "flex" },
@@ -228,7 +252,10 @@ function NavBar() {
                 onClose={handleCloseUserMenu}
               >
                 {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <MenuItem
+                    key={setting}
+                    onClick={handleCloseUserMenu}
+                  >
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}

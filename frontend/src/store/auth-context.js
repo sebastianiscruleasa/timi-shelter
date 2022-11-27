@@ -1,58 +1,56 @@
 import React from "react";
 import { useState, useCallback } from "react";
 const AuthContext = React.createContext({
-  token: "",
   isLoggedIn: false,
   role: "INSTITUTIE",
   name: "",
-  login: (token) => {},
+  login: (userIsLogged) => {},
   logout: () => {},
 });
 
 const retrieveUserStoredToken = () => {
-  const storedToken = localStorage.getItem("token");
+  const storedUserIsLogged = localStorage.getItem("userIsLogged");
   const storedRole = localStorage.getItem("role");
   const storedName = localStorage.getItem("name");
   return {
-    token: storedToken,
+    userIsLogged: storedUserIsLogged,
     role: storedRole,
     name: storedName,
   };
 };
 export const AuthContextProvider = (props) => {
   const userData = retrieveUserStoredToken();
-  let initialToken;
+  let initialUserIsLogged;
   let initialRole;
   let initialName;
   if (userData) {
-    initialToken = userData.token;
+    initialUserIsLogged = userData.userIsLogged;
     initialRole = userData.role;
     initialName = userData.name;
   }
 
-  const [token, setToken] = useState(initialToken);
+  const [userIsLogged, setUserLoggedIn] = useState(initialUserIsLogged);
   const [role, setRole] = useState(initialRole);
   const [name, setName] = useState(initialName);
-  const userIsLoggedIn = !!token;
+  const userIsLoggedIn = userIsLogged;
   const logoutHandler = useCallback(() => {
-    setToken(null);
+    setUserLoggedIn(false);
     setRole(null);
     setName(null);
-    localStorage.removeItem("token");
+    localStorage.removeItem("userIsLogged");
     localStorage.removeItem("role");
     localStorage.removeItem("name");
   }, []);
-  const loginHandler = (token, role, name) => {
-    setToken(token);
+  const loginHandler = (role, name) => {
+    setUserLoggedIn(userIsLogged);
     setRole(role);
     setName(name);
-    localStorage.setItem("token", token);
+    localStorage.setItem("userIsLogged", userIsLogged);
     localStorage.setItem("role", role);
     localStorage.setItem("name", name);
   };
 
   const contextValue = {
-    token: token,
     role: role,
     name: name,
     isLoggedIn: userIsLoggedIn,

@@ -1,0 +1,98 @@
+CREATE DATABASE timishelter_dev;
+
+CREATE USER 'timishelter_dev_user'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'timishelter_dev_user'@'%' IDENTIFIED BY 'password';
+
+GRANT SELECT ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT INSERT ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT DELETE ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT UPDATE ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT SELECT ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT INSERT ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT DELETE ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT UPDATE ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+GRANT ALTER ON timishelter_dev.* to 'timishelter_dev_user'@'localhost';
+GRANT ALTER ON timishelter_dev.* to 'timishelter_dev_user'@'%';
+
+SET autocommit = 1;
+
+CREATE TABLE user_profile(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`first_name` varchar(50),
+`last_name` varchar(50),
+`phone_number` varchar(50),
+`email` varchar(50),
+`age` int,
+`address` varchar(100),
+`identification_number` varchar(20),
+`type` int,
+CONSTRAINT `FK_username1` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
+
+CREATE TABLE user_application(
+    `username` varchar(50),
+    `password` varchar(255),
+    PRIMARY KEY (`username`),
+    UNIQUE KEY `id_UNIQUE` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE experience(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`description` varchar(3000),
+CONSTRAINT `FK_username2` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE needs(
+    `id` int NOT NULL AUTO_INCREMENT,
+	`username` varchar(50)  NOT NULL,
+	`need` int NOT NULL,
+    PRIMARY KEY(`id`),
+    UNIQUE KEY `id_UNIQUE` (`id`),
+	CONSTRAINT `FK_username3` FOREIGN KEY (`username`)
+	REFERENCES user_application(`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE special_needs(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`description` varchar(3000) NOT NULL,
+CONSTRAINT `FK_username4` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE achievements(
+`username` varchar(50) PRIMARY KEY NOT NULL,
+`name` varchar(50) NOT NULL,
+`date` varchar(50) NOT NULL,
+`category` varchar(50) NOT NULL,
+`status` varchar(50) NOT NULL,
+CONSTRAINT `FK_username5` FOREIGN KEY (`username`)
+REFERENCES user_application(`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE jobs(
+    `id` int NOT NULL AUTO_INCREMENT,
+	`username` varchar(50)  NOT NULL,
+	`title` varchar(50) NOT NULL,
+    `domain` varchar(50),
+    `qualification` varchar(50),
+    `period` varchar(50),
+    `description` varchar(3000),
+    PRIMARY KEY(`id`),
+    UNIQUE KEY `id_UNIQUE` (`id`),
+	CONSTRAINT `FK_username6` FOREIGN KEY (`username`)
+	REFERENCES user_application(`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE providers(
+    `id` int NOT NULL AUTO_INCREMENT,
+	`username` varchar(50)  NOT NULL,
+	`type` varchar(50) NOT NULL,
+    `capacity` int,
+    `description` varchar(3000),
+    PRIMARY KEY(`id`),
+    UNIQUE KEY `id_UNIQUE` (`id`),
+	CONSTRAINT `FK_username7` FOREIGN KEY (`username`)
+	REFERENCES user_application(`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;

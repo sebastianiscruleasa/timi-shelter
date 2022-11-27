@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Login } from "./Login";
 import { Register } from "./Register";
 import { InstitutionRegister } from "./InstitutionRegister";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 function Homepage() {
   const [openModal, setOpenModal] = useState(false);
@@ -16,18 +17,29 @@ function Homepage() {
     useState(false);
 
   return (
-    <Container maxWidth="xl">
+    <Container
+      maxWidth="xl"
+      style={{ backgroundColor: "white", borderRadius: "30px 30px 0" }}
+    >
       <Carousel style={{ paddingTop: "20px" }}>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://www.canadahelps.org/media/Socks-4-Souls_Giving-Life-Blog_Decmeber-2020_Featured-Image..png"
+            src="https://www.opiniatimisoarei.ro/wp-content/uploads/2022/02/ajutoare-refugiati-728x336.jpg"
             alt="First slide"
-            style={{ borderRadius: "25px", maxHeight: "670px" }}
+            style={{
+              borderRadius: "25px",
+              maxHeight: "670px",
+              filter: "brightness(40%)",
+            }}
           />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <Carousel.Caption sx={{ fontWeight: "300", textAlign: "center" }}>
+            <h1>Ajutoare oferite</h1>
+            <p>
+              În ciuda faptului că organizația este la început de drum am reușit{" "}
+              <br></br>
+              să oferim până în acest moment ajutor ...
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -35,35 +47,62 @@ function Homepage() {
             className="d-block w-100"
             src="https://missioncommunityservices.com//wp-content/uploads/2020/01/homeless-outreach-widget.jpg"
             alt="Second slide"
-            style={{ borderRadius: "25px", maxHeight: "670px" }}
+            style={{
+              borderRadius: "25px",
+              maxHeight: "670px",
+              filter: "brightness(40%)",
+            }}
           />
 
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <Carousel.Caption sx={{ fontWeight: "300" }}>
+            <h1>Echipa noastră </h1>
+            <p>
+              Atât angajații cât și voluntarii noștrii străbat străziile
+              Timișoarei <br></br>
+              încercând să asiste orice persoană cu înregistrarea ...
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://www.gtcf.org/wp-content/uploads/homelessness_must_end.png"
+            src="https://yesacademy.ro/wp-content/uploads/2022/04/Cum-sa-planifici-un-team-building-in-9-pasi-cu-yes-academy-la-munte-si-mare-imagine-1920x1080-1.jpg"
             alt="Third slide"
-            style={{ borderRadius: "25px", maxHeight: "670px" }}
+            style={{
+              borderRadius: "25px",
+              maxHeight: "670px",
+              filter: "brightness(40%)",
+            }}
           />
 
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
+          <Carousel.Caption sx={{ fontWeight: "300" }}>
+            <h1>Cum se intamplă</h1>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Reușim să ajutăm alți oameni pentru că și noi suntem ajutati de
+              dumneavoastră,<br></br> atât prin serviciile oferte cât și prin
+              donațiile primite ...
             </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Grid container paddingTop={6} justifyContent="space-evenly">
+      <Grid
+        container
+        paddingTop={6}
+        justifyContent="space-evenly"
+      >
         <Button
           variant="contained"
           size="large"
-          sx={{ fontSize: 30, textTransform: "none", width: 330 }}
+          sx={{
+            fontSize: 30,
+            textTransform: "none",
+            width: 330,
+            backgroundColor: "#015265",
+            "&:hover": {
+              backgroundColor: "#015265",
+            },
+            borderRadius: 25,
+          }}
           onClick={() => setOpenRegisterModal(true)}
         >
           Am nevoie de ajutor
@@ -71,18 +110,38 @@ function Homepage() {
         <Button
           variant="contained"
           size="large"
-          sx={{ fontSize: 30, textTransform: "none", width: 330 }}
+          sx={{
+            fontSize: 30,
+            textTransform: "none",
+            width: 330,
+            backgroundColor: "#015265",
+            "&:hover": {
+              backgroundColor: "#015265",
+            },
+            borderRadius: 25,
+          }}
           onClick={() => setOpenInstitutionRegisterModal(true)}
         >
           Vreau sa ajut
         </Button>
       </Grid>
-      <Grid container justifyContent="center">
-        <Button variant="text" onClick={() => setOpenModal(true)}>
+      <Grid
+        container
+        justifyContent="center"
+      >
+        <Button
+          variant="text"
+          onClick={() => setOpenModal(true)}
+          style={{ color: "#015265" }}
+        >
           Ai deja cont? Autentifica-te!
         </Button>
       </Grid>
-      <Grid container paddingY={5} justifyContent="center">
+      <Grid
+        container
+        paddingY={5}
+        justifyContent="center"
+      >
         <Grid
           item
           md={2}
@@ -135,7 +194,11 @@ function Homepage() {
             Sănătate și bună stare
           </Typography>
         </Grid>
-        <Grid item md={4} padding={5}>
+        <Grid
+          item
+          md={4}
+          padding={5}
+        >
           <Typography
             variant="h5"
             sx={{ textAlign: "center", fontWeight: 700, fontSize: "30px" }}
@@ -201,7 +264,10 @@ function Homepage() {
           </Typography>
         </Grid>
       </Grid>
-      <Login open={openModal} onClose={() => setOpenModal(false)} />
+      <Login
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+      />
       <Register
         open={openRegisterModal}
         onClose={() => setOpenRegisterModal(false)}
