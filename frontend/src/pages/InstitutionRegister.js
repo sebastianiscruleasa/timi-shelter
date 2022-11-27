@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import {
   Container,
   Grid,
@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router";
+import AuthContext from "./../store/auth-context";
 
 const styles = {
   input: { width: 500, marginY: 2 },
@@ -25,13 +27,49 @@ export function InstitutionRegister(props) {
   const lastName = useRef(null);
   const phoneNumber = useRef(null);
   const cnp = useRef(null);
+  const cnp1 = useRef(null);
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const submitHandler = () => {
+    const payload_data = {
+      firstName: lastName.current["value"],
+      email: firstName.current["value"],
+      phoneNumber: phoneNumber.current["value"],
+      address: cnp.current["value"],
+      identificationNumber: cnp1.current["value"],
+    };
+    console.log(payload_data);
+    fetch("http://localhost:8080/userProfile/createUserProfile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload_data),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            let errorMessage = "Register failed!";
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        authCtx.login(true, "CLIENT", firstName.current["value"]);
+        onClose();
+        navigate("/", { replace: true });
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
 
   return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      sx={{ verticalAlign: "middle" }}
-    >
+    <Modal open={open} onClose={onClose} sx={{ verticalAlign: "middle" }}>
       <Container sx={styles.modal}>
         <Grid
           container
@@ -56,11 +94,7 @@ export function InstitutionRegister(props) {
               >
                 <CloseIcon />
               </Button>
-              <Grid
-                container
-                justifyContent="center"
-                alignItems="center"
-              >
+              <Grid container justifyContent="center" alignItems="center">
                 <Grid item>
                   <Grid
                     container
@@ -69,11 +103,7 @@ export function InstitutionRegister(props) {
                       borderRadius: 3,
                     }}
                   >
-                    <Grid
-                      container
-                      justifyContent="center"
-                      alignItems="center"
-                    >
+                    <Grid container justifyContent="center" alignItems="center">
                       <Grid item>
                         <Typography
                           fontFamily={"sans-serif"}
@@ -91,7 +121,7 @@ export function InstitutionRegister(props) {
                     </Grid>
                     <Grid item>
                       <TextField
-                        ref={lastName}
+                        inputRef={lastName}
                         id="outlined-basic"
                         defaultValue={""}
                         label="Nume institutie"
@@ -104,7 +134,7 @@ export function InstitutionRegister(props) {
                         inputRef={firstName}
                         id="outlined-basic"
                         defaultValue={""}
-                        label="Adresa"
+                        label="Adresa de email"
                         variant="outlined"
                         sx={styles.input}
                       />
@@ -122,9 +152,19 @@ export function InstitutionRegister(props) {
                     <Grid item>
                       <TextField
                         id="outlined-basic"
-                        label="Descriere"
+                        label="Adresa"
                         defaultValue={""}
                         inputRef={cnp}
+                        variant="outlined"
+                        sx={styles.input}
+                      />
+                    </Grid>
+                    <Grid item>
+                      <TextField
+                        id="outlined-basic"
+                        label="CUI"
+                        defaultValue={""}
+                        inputRef={cnp1}
                         variant="outlined"
                         sx={styles.input}
                       />
@@ -137,6 +177,7 @@ export function InstitutionRegister(props) {
                       >
                         <Grid item>
                           <Button
+                            onClick={submitHandler}
                             sx={[
                               styles.button,
                               {
