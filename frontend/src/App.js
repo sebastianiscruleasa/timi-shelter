@@ -6,6 +6,7 @@ import Plans from "./pages/Plans";
 import { Achievements } from "./pages/Achievements";
 import { InstitutionAchievements } from "./pages/InstitutionAchievements";
 import Needs from "./pages/Needs";
+import Recomandari from "./pages/Recomandari";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/nevoi" element={<Needs />} />
         <Route path="/realizări" element={<Achievements />} />
         <Route path="/realizari" element={<InstitutionAchievements />} />
+        <Route path="/recomandări" element={<Recomandari />} />
       </Routes>
     </Layout>
   );

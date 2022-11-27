@@ -27,6 +27,46 @@ export function Login(props) {
   const { open, onClose } = props;
   const username = useRef(null);
   const password = useRef(null);
+
+  const submitHandler = () => {
+    const login_data = {
+      username: username.current["value"],
+      password: password.current["value"]
+    };
+
+    fetch("http://localhost:8080/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(login_data),
+    })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            return res.json().then((data) => {
+              let errorMessage = "Register failed!";
+              throw new Error(errorMessage);
+            });
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          if(data === true) {
+            authCtx.login(true, "CLIENT", username.current.value);
+            onClose();
+            navigate("/acasă", {replace: true});
+          }
+          else{
+            alert("Wrong credentials!");
+          }
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+
+  };
   return (
     <Modal
       open={open}
@@ -112,11 +152,7 @@ export function Login(props) {
                 >
                   <Grid item>
                     <Button
-                      onClick={() => {
-                        authCtx.login(true, "CLIENT", username.current.value);
-                        onClose();
-                        navigate("/acasă", { replace: true });
-                      }}
+                      onClick={submitHandler}
                       sx={[
                         styles.button,
                         {
