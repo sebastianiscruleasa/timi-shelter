@@ -4,17 +4,20 @@ import HealthPhoto from "../assets/Health.png";
 import WorkPhoto from "../assets/Work.png";
 import InequalitiesPhoto from "../assets/ReducedInequalities.png";
 import Carousel from "react-bootstrap/Carousel";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Login } from "./Login";
 import { Register } from "./Register";
 import { InstitutionRegister } from "./InstitutionRegister";
 import { alignProperty } from "@mui/material/styles/cssUtils";
+import AuthContext from "../store/auth-context";
 
 function Homepage() {
   const [openModal, setOpenModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
   const [openInstitutionRegisterModal, setOpenInstitutionRegisterModal] =
     useState(false);
+
+  const authCtx = useContext(AuthContext);
 
   return (
     <Container
@@ -85,11 +88,7 @@ function Homepage() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Grid
-        container
-        paddingTop={6}
-        justifyContent="space-evenly"
-      >
+      <Grid container paddingTop={6} justifyContent="space-evenly">
         <Button
           variant="contained"
           size="large"
@@ -125,10 +124,7 @@ function Homepage() {
           Vreau sa ajut
         </Button>
       </Grid>
-      <Grid
-        container
-        justifyContent="center"
-      >
+      <Grid container justifyContent="center">
         <Button
           variant="text"
           onClick={() => setOpenModal(true)}
@@ -137,11 +133,7 @@ function Homepage() {
           Ai deja cont? Autentifica-te!
         </Button>
       </Grid>
-      <Grid
-        container
-        paddingY={5}
-        justifyContent="center"
-      >
+      <Grid container paddingY={5} justifyContent="center">
         <Grid
           item
           md={2}
@@ -194,11 +186,7 @@ function Homepage() {
             Sănătate și bună stare
           </Typography>
         </Grid>
-        <Grid
-          item
-          md={4}
-          padding={5}
-        >
+        <Grid item md={4} padding={5}>
           <Typography
             variant="h5"
             sx={{ textAlign: "center", fontWeight: 700, fontSize: "30px" }}
@@ -264,10 +252,7 @@ function Homepage() {
           </Typography>
         </Grid>
       </Grid>
-      <Login
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-      />
+      <Login open={openModal} onClose={() => setOpenModal(false)} />
       <Register
         open={openRegisterModal}
         onClose={() => setOpenRegisterModal(false)}

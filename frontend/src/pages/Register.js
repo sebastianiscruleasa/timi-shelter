@@ -72,7 +72,7 @@ export function Register(props) {
       })
       .then((data) => {
         console.log(data);
-        authCtx.login(true, payload_data.userType, firstName);
+        authCtx.login(true, "CLIENT", firstName.current["value"]);
         onClose();
         navigate("/", { replace: true });
       })
