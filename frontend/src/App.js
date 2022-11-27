@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout";
 import { Register } from "./pages/Register";
 import Plans from "./pages/Plans";
 import { Achievements } from "./pages/Achievements";
+import { InstitutionAchievements } from "./pages/InstitutionAchievements";
 import Needs from "./pages/Needs";
 import Recomandari from "./pages/Recomandari";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/plan" element={<Plans />} />
         <Route path="/nevoi" element={<Needs />} />
         <Route path="/realizări" element={<Achievements />} />
+        <Route path="/realizari" element={<InstitutionAchievements />} />
         <Route path="/recomandări" element={<Recomandari />} />
       </Routes>
     </Layout>

@@ -5,7 +5,7 @@ import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
 import Icon from "@mui/material/Icon";
 import NoDrinksIcon from "@mui/icons-material/NoDrinks";
 
-export function Achievements() {
+export function InstitutionAchievements() {
   return (
     <div
       style={{
@@ -30,7 +30,7 @@ export function Achievements() {
         }}
       >
         <h6>
-          <br></br>Acestea sunt reușitele tale până acum!
+          <br></br>Acestea sunt realizarile institutiei dumneavoastra!
         </h6>
 
         <div>
@@ -110,7 +110,9 @@ export function Achievements() {
       >
         <div>
           <CheckCircleOutlineIcon />
-          <span style={{ marginLeft: 20 }}>Ești angajat o lună</span>
+          <span style={{ marginLeft: 20 }}>
+            Ai oferit o a doua sansa pentru 10 persoane{" "}
+          </span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div>
@@ -124,7 +126,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Slujbă
+              Angajare
             </span>
           </div>
           <div>
@@ -174,7 +176,9 @@ export function Achievements() {
       >
         <div>
           <CheckCircleOutlineIcon color="disabled" />
-          <span style={{ marginLeft: 20 }}>Fără băutură 6 luni</span>
+          <span style={{ marginLeft: 20 }}>
+            Ai donat mancare pentru 20 de oameni
+          </span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div>
@@ -188,7 +192,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Sănătate
+              Donatii
             </span>
           </div>
           <div>
@@ -326,7 +330,7 @@ export function Achievements() {
         <div>
           <CheckCircleOutlineIcon color="disabled" />
           <span style={{ marginLeft: 20 }}>
-            Continua sa ajuti comunitatea prin activitatile tale timp de 6 luni
+            Doneaza medicamente pentru minim 5 persoane
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
@@ -341,7 +345,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Categorie
+              Donatii
             </span>
           </div>
           <div>
@@ -389,7 +393,7 @@ export function Achievements() {
         <div>
           <CheckCircleOutlineIcon color="disabled" />
           <span style={{ marginLeft: 20 }}>
-            Continua sa folosesti aplicatia pentru a descoperi noi oportunitati
+            Ajuta minim 50 de oameni sa isi reabiliteze imaginea
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
@@ -404,7 +408,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Categorie
+              Angajare
             </span>
           </div>
           <div>
@@ -452,7 +456,7 @@ export function Achievements() {
         <div>
           <CheckCircleOutlineIcon color="disabled" />
           <span style={{ marginLeft: 20 }}>
-            Aplica la inca 3 locuri de munca temporare
+            Ofera cazare temporara pentru 5 oameni
           </span>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
@@ -467,7 +471,7 @@ export function Achievements() {
                 color: "#fff",
               }}
             >
-              Categorie
+              Cazare
             </span>
           </div>
           <div>
