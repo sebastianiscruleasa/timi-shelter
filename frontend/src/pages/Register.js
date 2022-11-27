@@ -52,30 +52,48 @@ export function Register(props) {
       identificationNumber: cnp.current["value"],
       age: varsta.current["value"],
       userType: "CLIENT",
-      isGoodCitizen: goodCitizen,
+      // isGoodCitizen: goodCitizen,
     };
+    console.log(payload_data);
+    console.log(JSON.stringify(payload_data));
 
-    fetch("http://localhost:8080/userProfile/createUserProfile", {
+    // fetch("http://localhost:8080/userProfile/createUserProfile", {
+    //   method: "POST",
+    //   body: JSON.stringify(payload_data),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     charset: "utf-8",
+    //     // "Access-Control-Allow-Origin": "*",
+    //   },
+    //   mode: "no-cors",
+    // })
+    fetch("http://localhost:8080/user/newUser?username=andrei&password=123", {
       method: "POST",
-      body: payload_data,
+      headers: {
+        "Content-Type": "application/json",
+        //   // "Access-Control-Allow-Origin": "*",
+      },
+      mode: "no-cors",
     })
       .then((res) => {
-        if (res.ok) {
-          return res.json();
+        // console.log(res.json());
+        if (res.type === "opaque" || res.ok) {
+          console.log(res);
         } else {
-          return res.json().then((data) => {
+          return res.json().then(() => {
             let errorMessage = "Register failed!";
             throw new Error(errorMessage);
           });
         }
       })
       .then((data) => {
-        console.log(data);
+        console.log("data");
         authCtx.login(true, payload_data.userType, firstName);
         onClose();
         navigate("/", { replace: true });
       })
       .catch((err) => {
+        console.log("skafgasjl");
         alert(err.message);
       });
   };
@@ -133,7 +151,7 @@ export function Register(props) {
                     </Grid>
                     <Grid item>
                       <TextField
-                        ref={lastName}
+                        inputRef={lastName}
                         id="outlined-basic"
                         defaultValue={""}
                         label="Nume"
