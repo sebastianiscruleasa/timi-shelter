@@ -14,7 +14,7 @@ import { useNavigate } from "react-router";
 
 import AuthContext from "./../store/auth-context";
 
-
+import swal from "sweetalert";
 
 const styles = {
   input: { width: 500, marginY: 2 },
@@ -78,15 +78,11 @@ export function Register(props) {
         onClose();
         navigate("/", { replace: true });
         // alert(`Parola ta este ${data.password}`);
-<<<<<<< HEAD
         swal(
           "Bine ai venit!",
           `Numele contului tau este ${data.username}
           Parola ta este ${data.password}`
         );
-=======
-        //swal("Bine ai venit!", `Parola ta este${data.password}`);
->>>>>>> 742806061e7d0f96cb9be1cdf6ceaebd061926cf
       })
       .catch((err) => {
         alert(err.message);
